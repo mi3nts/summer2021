@@ -1,0 +1,1487 @@
+<div class="dedication">
+
+Dedicated to my loving parents, Harindra Wijeratne, Sandya Wijeratne, and beloved wife, Lakshika Wijeratne for their endless love and encouragement
+
+
+</div>
+<div class="acks">
+
+<span>April 2021</span>
+
+Undertaking this PhD has been a truly life-changing experience for me and it would not have been possible without the support and guidance that I received from many people.
+
+Foremost, I would like to express my deepest gratitude to my advisor, Prof. David Lary for the continuous support of my PhD study during my tenure at UT Dallas. His dynamism, vision, sincerity, and motivation have deeply inspired me. He has taught me the methodology to carry out and present the research works as clearly as possible. His guidance and encouragement has always given me more power and spirit to excel in my field of study.
+
+I also thank my supervisory committee, Prof. Roderick Heelis, Prof. Robert Glosser, Prof. Jason Slinker, and Prof. Lunjin Chen, for their helpful suggestions and support.
+
+I would also like to say thanks to my friends and research colleagues, Tharake Wijenayake, Dimithree Kahanda, Sachini Perera, Yalini Wijesundara, Lakmal Gamage, Daji Wu, Gebreab Zewdie, Xun Liu, Ray Ducay, Yichao Zhang, Daniel Kiv, Yu Xiaohe, Shawhin Talebi, Adam Aker, John Waczak, Ashen Fernando, Gokul Balagopal, Aaron Barbosa, Giakhanh Hoang, Julia Kim, Berkley Shofner and John Sadler, for their constant encouragement.
+
+Nobody has been more important to me in the pursuit of this project than the members of my family. I would like to thank my parents, whose love and guidance are with me in whatever I pursue. They are the ultimate role models. Most importantly, I wish to thank my loving and supportive wife, Lakshika for her never-ending love, understanding, wholehearted support and unlimited patience throughout this journey.
+
+Finally, my thanks go to all the people who have supported me to complete the research work directly or indirectly.
+
+
+</div>
+= The Air We Breathe =
+
+== Dissertation Goal ==
+
+The goal of this study is to accurately calibrate physical sensors that can easily be deployed at scale to ''characterize the temporal and spatial scales of variability of urban air pollution'', with a focus on airborne particulates.
+
+The temporal and spatial scales of each atmospheric component is intimately connected. The resolution used in atmospheric air quality modeling tools is often driven by the computational resources available. The spatial resolution of observational networks is often determined by the fiscal resources available. In this dissertation we have taken a step back and objectively characterized what are the spatial and temporal scales for each component of urban air quality. Based on our street level surveys providing data at less than a meter resolution, it is clear that the spatial scales are dependent on several factors such as the synoptic situation, the distribution of sources, and the terrain, etc. This dissertation is focused on the urban atmosphere and its composition. By design, the activities are deliberately coordinated with existing efforts in the dense urban environment, we are focused on providing essential and high quality environmental information vital to our nation’s safety, prosperity and resilience. For both air quality and carbon management purposes, urban areas are a large source of pollutants, and the best place to focus research to inform mitigation efforts, given the geographic concentration of emissions.
+
+== The Air We Breathe ==
+
+For humans, the air we breathe is vital, and usually invisible (unless the pollution levels are very high). Every single minute an average human being breathes 10 liters of air. However, we often do not think about the composition of the air that we breath and the impact it may be having on our health. Often pollutant particles resides within air. Although it is apparent that air pollution results in increased hospital visits, missed school days as well as missed work days (due to respiratory diseases), it is harder to localize exactly where unhealthy air resides. The <span acronym-label="who" acronym-form="singular+full">who</span> reports that 9 out of 10 people worldwide breathe polluted air which results in an estimated 7 million deaths per year .
+
+== Air Pollution Episodes in History ==
+
+Historic episodes of air pollution provides examples of how air pollution can result in unprecedented loss of life. A few of such air pollution events are listed below.
+
+* Great Smog of London (1952): In December of 1952 a severe smog covered many parts of the British Isles . The episode lasted 5 days (December 5 - December 9, 1952) and more than 4000 deaths occurred before the end of the year. Within the next 10 weeks a further 8000 people lost there lives . The primary cause of the episode was extensive burning of high-sulphur coal . Following the incident the British parliament passed the clean air act of 1956 which restricted burning of coal in urban areas.
+* New York City Smog (1966): On the thanksgiving weekend of 1966, smog containing damaging levels of toxic pollution (comprised of Carbon Monoxide and Sulfur Dioxide) covered New York City.  reports that thanksgiving weekend of 1966 was the smoggiest day in the city’s history. Even though regional leaders announced a first-stage alert, it is believed that more than 200 people lost their lives due the air pollution episode. In fact,  estimates that 24 excess deaths per day occurred in New York City during the air pollution episode (November 23 - November 29, 1966). In the wake of such environmental pollution events, as a means of limiting and eradicating environmental pollution, the <span acronym-label="usepa" acronym-form="singular+full">usepa</span> was established on December of 1970.
+* Eastern China Smog (2013): On December 7, 2013, a hazardous smog stretched a distance of about 1200 km within China . The episode lasted for 8 days between the 2<math display="inline">^{nd}</math> and 9<math display="inline">^{th}</math> of December, 2013.  states that within the duration of the smog episode, the average PM<math display="inline">_{2.5}</math> were 212 <math display="inline">\mu</math>g/m<math display="inline">^{3}</math>, which was three times higher than the usual PM<math display="inline">_{2.5}</math> concentration (76 <math display="inline">\mu</math>g/m<math display="inline">^{3}</math>) within the same area. In China, coal still remains to be the main energy source and its regarded to be the primary cause of fine <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> pollution in China. The Chinese cities of Baoding, Shijiazhuang and Handan reported more than 30,000 deaths in 2013 per city, which can be linked to pollution .
+* Great Smog of New Delhi (2016): <span acronym-label="who" acronym-form="singular+abbrv">who</span> announced New Delhi as the most polluted city in the world in 2014 . On November of 2017 the air pollution levels in New Delhi went up to 999 on the <span acronym-label="aqi" acronym-form="singular+abbrv">aqi</span> scale. This is an air pollution level equivalent to smoking 50 cigarettes per day . The cities visibility level reduced to less than 50 m during the episode . It is assumed that the major causes of air pollution in New Delhi are burning coal, petrol, diesel, gas, biomass and waste, along with industries, power plants, and fire crackers .
+
+Such episodes remains to be a constant reminder of the devastation that air pollution can cause. The first steps in fighting air pollution is to raise awareness of the problem it self.
+
+== Making the Invisible, Visible ==
+
+Conventional air quality management systems generally rely on a small number of regulatory grade sensors across an urban area, for example across the Dallas-Fort Worth Metroplex with a population of over seven million, there are just three airborne particulate sensors. Due to the substantial cost of these regulatory grade sensing systems, they fail to provide adequate spatial or temporal resolution for characterizing air quality on a neighborhood scale. As such, these sensor systems do not adequately inform us about the situation within our neighborhoods, where people live, work, and play. Recent studies have demonstrated that air quality varies on very fine spatial and temporal scales . Thus, it is apparent that the world needs air quality sensing systems at the neighborhood scale. The initiation of air quality sensing system requires an understanding of what parameters to measure, where the sensors are to be located and the budgetary constrains that the system is to be bounded by. Such an understanding can be gained via the knowledge of the mix of pollutants that may be residing within the study, and the general mind set of the people at stake. Another key aspect in getting started in a project is to look into available technologies that can abide by the requirements defined.
+
+In this study we utilize a wide range of sensing systems on a variety of platforms, including:
+
+# A network of 24/7 street level sensors that I constructed. We hope to deploy 130 such sensors by the end of next year. Ten of these are about to be deployed across the campus of UT Dallas.
+# A comprehensively instrumented electric survey vehicle (Chevy Bolt) carrying a mass spectrometer, airborne particle spectrometers measuring in a few hundred size bins particles with a diameter of between 10 nm and 100 microns, a NIST (National Institute of Standards and Technology) calibrated illuminance UV/Visible/NIR spectrometer measuring from 360 - 780 nm every nm, a gamma ray spectrometer, and NIST calibrated ultrasonic wind speed and direction weather station.
+# A comprehensively instrumented robotic boat, comprehensively measuring the composition of the water and air. The boat payload includes a BioSonics MX Aquatic Habitat Echo-sounder that can simultaneously acquire the length of submerged aquatic vegetation, the substrate (bottom) type, and bathymetry data. Three Eureka Manta-40 multi-probes each including a central wiping system. The sensors in our multi-probes include sensors for temperature, pH, dissolved oxygen, total dissolved gas, and turbidity. Fluorometers measuring: Chlorophyll A with Red Excitation, Blue-Green Algae (Phycocyanin and Phycoerythrin), colored dissolved organic material (CDOM)/fDOM, optical brighteners, crude oil, refined fuels, and tryptophan. Ion sensors measuring NH<math display="inline">_4^+</math>, NO<math display="inline">_3^-</math>, Br<math display="inline">^-</math>, Cl<math display="inline">^-</math>, Na<math display="inline">^+</math>, Ca<math display="inline">^{2+}</math>, conductivity (with specific conductance, salinity, and total dissolved solids). A Sequoia LISST-200X submersible laser-diffraction based particle size analyzer designed to measure particle size and concentration in rivers, streams, ports, harbors, coasts and oceans, whether for biological, sediment transport, or environmental monitoring needs. Applications include sediment transport studies, harmful algae blooms, oil spill dispersion effectiveness, dredge plume monitoring, etc.
+# A fleet of robotic aerial vehicles equipped with a range of payloads including hyper-spectral cameras and air quality sensors, including a Resonon Pika XC2 complete airborne hyperspectral sensing system with 447 spectral channels between 400–1,000 nm.
+
+= Introduction to Atmospheric Aerosols =
+
+Airborne atmospheric aerosols are an assortment of solid or liquid particles suspended in air . Aerosols, also referred to as <span acronym-label="pm" acronym-form="singular+full">pm</span>, are associated with a suite of issues relevant to both global climate effects , atmospheric photolysis, and a range of adverse health effects . Atmospheric aerosols are usually formed either by direct emission from a specific source (e.g. combustion) or from gaseous precursors . Even though individual aerosols are typically invisible to the naked eye due to their small size, their presence in substantial quantities usually makes them visible (e.g. as fog, mist, haze, smoke, dust plumes, etc.) . Airborne aerosols vary in their size, composition, and origin as well as in their spatial and temporal distributions . As a result, the study of atmospheric aerosols has its challenges. The following aerosol classifications provide some useful insights.
+
+== Aerosol Classification ==
+
+Characterization of atmospheric aerosols can be based on their origin, concentration, size, chemical composition, phase and morphology . However, one of the main forms of aerosol classification is via their sources.
+
+=== Source Based Classification ===
+
+The formation of atmospheric aerosols can be complex. As a result, the determination of global aerosol sources are approximate . Three main terrestrial sources are typically quoted .
+
+* Cosmic Aerosols: Particles migrating through space are usually considered cosmic particles .
+* Primary Aerosols: Particles directly emanating from the earth’s surface are usually termed primary aerosols , for example the aerosols formed due to the agitation of oceanic or terrestrial surfaces by wind.
+* Secondary Aerosols: Secondary particles occur from condensation of gaseous species (aerosol precursors) . These may endure one or many chemical transformations prior to their formation.
+
+Primary and secondary aerosols are further sub-divided depending on their origin into natural and anthropogenic (man-made) aerosols . Most emissions from the oceans, vegetation, forest fires and volcanoes are considered natural in origin. Anthropogenic sources are dominated by the emissions from the combustion of fossil and bio fuels.
+
+=== Shape Based Classification ===
+
+ describes the three main distinctions based on the shapes of atmospheric aerosols.
+
+* Isometric Particulates: The 3 dimensions of isometric particles are defined to be similar. Spherical particulates belong to this category . This study is done under the assumption of sphericity (isometric particulates).
+* Platelets: Platelets have two longer dimensions compared to the third one. Disk like particles falls under this classification.
+* Fibres: Fibres are particulates with two smaller dimensions and one longer dimension. Asbestos is one well known fibre.
+
+=== Classification Based on Chemical Composition ===
+
+Ambient <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> is usually comprised of a mixture of one or more of the following chemical compounds: Geological material (oxides of aluminum, silicon, calcium, titanium, iron, and other metal oxides), sulfates, nitrates, ammonium, sodium chloride, organic carbon, elementary carbon and liquid water . A more generalized classification is derived considering the chemical purity of <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> by distinguishing between internal and external mixtures.
+
+* External mixture: In an external mixture individual particles within are chemically pure.
+* Internal mixture: In an internal mixture individual particulates are a mix of chemical species. A perfect internal mixture is said have the same mix of chemical species for all particulates.
+
+Typical atmospheric particulates would be in the middle ground between perfect internal and external mixes . The optical properties of atmospheric aerosols, and in-turn the radiative forcing due to atmospheric aerosols, is partly determined by the state of mixing (externally or internally) of the chemical species involved .
+
+=== Spatial Classification ===
+
+Aerosols are also categorized with respect to there localized regions. The classification gives rise to these categories: urban aerosols, marine aerosols, rural continental aerosols, free troposphere aerosols, stratospheric aerosols, polar aerosols and desert aerosols. In some cases a geospatial classification might be inexact due to the possibility of long-range aerosol transportation. However, the regional aerosol classification is useful when local effects eclipse the more generic effects of aerosols .
+
+=== Size based classification ===
+
+Aerosol size distribution as well as the chemical composition play a role in their atmospheric transportation . Most atmospheric particles aren’t spherical. However, in atmospheric sciences, particles with equivalent settling velocities are considered to be of equal size irrespective of their actual size or composition. The microscopic properties of aerosols differ significantly depending on the type of aerosol. Nevertheless, generic models are defined to describe the main microscopical properties of a given aerosol with its appropriately assumed diameter . The two most generic definitions of such assumed diameters are as follows:
+
+* Aerodynamic diameter: The diameter of a unit density sphere which has similar aerodynamic properties as the particle considered.
+* Stokes diameter: The diameter of a sphere which has similar density as the particle considered.
+
+These definitions are introduced to avoid ambiguities of size measurements that may occur due to the use of different types of instrumentation . This study uses the aerodynamic diameter for size based distinctions. There are two distinct means of aerosol classification with respect to size.
+
+<ul>
+<li><p>Modal distributions: The size based classification of aerosols is mainly devised on five modes :</p>
+<ol>
+<li><p>The nucleation mode or ultra-fine mode with a diameter of less than 0.01 <math display="inline">\mu</math>m.</p></li>
+<li><p>The aitken mode with a diameter in the range 0.01 <math display="inline">\mu</math>m – 0.1 <math display="inline">\mu</math>m.</p></li>
+<li><p>The accumulation mode with a diameter in the range 0.1 <math display="inline">\mu</math>m – 1 <math display="inline">\mu</math>m.</p></li>
+<li><p>The coarse mode with a diameter in the range 1 <math display="inline">\mu</math>m – 10 <math display="inline">\mu</math>m.</p></li>
+<li><p>The super-coarse mode with a diameter of greater than 10 <math display="inline">\mu</math>m.</p></li></ol>
+
+<p>Each of these modes corresponds to the relative maximums of number, surface and volume distributions of atmospheric aerosols.</p></li>
+<li><p>Variables related to human exposure: The term ‘fine’ particulates usually refers to particulates less than 1 <math display="inline">\mu</math>m in aerodynamic diameter (PM<math display="inline">_1</math>) and particulates less than 2.5 <math display="inline">\mu</math>m in aerodynamic diameter (PM<math display="inline">_{2.5}</math>). For air pollution control, particulates up to 10 <math display="inline">\mu</math>m in diameter (PM<math display="inline">_{10}</math>) are also considered . Currently the <span acronym-label="usepa" acronym-form="singular+abbrv">usepa</span> regulates PM<math display="inline">_{2.5}</math> and PM<math display="inline">_{10}</math> due to the human health effects associated with PM<math display="inline">_{2.5}</math> and PM<math display="inline">_{10}</math> . Some air quality monitors also measure the <span acronym-label="tsp" acronym-form="singular+full">tsp</span> size fraction which includes particulates up to 40 <math display="inline">\mu</math>m . Another division of occupational health based size-selective sampling is defined by assessing the subset of particles that can reach a selective region of the respiratory system. On this basis, three main fractions are defined: inhalable, thoracic and alveolic . The current study focuses on measurements of the six variables PM<math display="inline">_{1}</math>, PM<math display="inline">_{2.5}</math>, PM<math display="inline">_{10}</math>, alveolic, thoracic and inhalable size fractions.</p></li></ul>
+
+== Health Effects ==
+
+The effects on human health due to air pollution may be the most controversial . Nevertheless it is by far the most important. Studies have shown that exposure of excess <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> has alarming negative health effects . The smallest size ranges of (less than 2.5 <math display="inline">\mu</math>m) <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> is capable of penetrating through to the lungs or even to ones blood stream. As such, the highest mortality is associated with PM<math display="inline">_{2.5}</math> .  reports that more than 90% of the world’s population lived with unhealthy air in 2015. The <span acronym-label="ats" acronym-form="singular+full">ats</span> has a slightly higher guideline of 11 <math display="inline">\mu</math>g/m<math display="inline">^{3}</math> annual mean concentrations as compared with <span acronym-label="who" acronym-form="singular+abbrv">who</span>s 10 <math display="inline">\mu</math>g/m<math display="inline">^{3}</math> for PM<math display="inline">_{2.5}</math>. However, it is reported that 14% of countries with valid design values for atmospheric pollution exceeds the said recommendation by the <span acronym-label="ats" acronym-form="singular+abbrv">ats</span> . The results of the Aphekom project conducted in 25 European cities reveals that complying with the <span acronym-label="who" acronym-form="singular+abbrv">who</span>s <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> guidelines for PM<math display="inline">_{2.5}</math> would increase life expectancy by 22 months while also giving financial savings of €31 billion annually . The health hazard created by excess airborne <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> also creates critical expenditures within developing countries. The estimated economic cost due to PM<math display="inline">_{2.5}</math> pollution for the city of Delhi was estimated to be $6,394.74 in 2015, up from $2,714.10 in 2005 . Due to these reasons considerable amounts on research is done on the health hazards caused by <span acronym-label="pm" acronym-form="singular+abbrv">pm</span>. Table [[#t:healthStudies|2.1]] provides an overview of research done on specific health concerns with respect to PM<math display="inline">_{10}</math>, PM<math display="inline">_{2.5}</math> and <span acronym-label="ufp" acronym-form="singular+full">ufp</span>.
+
+<div class="center">
+
+<div id="t:healthStudies">
+
+{|
+|+  Health Concerns due to PM<math display="inline">_{10}</math>, PM<math display="inline">_{2.5}</math>, and <span acronym-label="ufp" acronym-form="singular+full">ufp</span>. Table adapted from
+| ''''''Health Outcomes''''''
+|align="center"| '''Short-Term Studies'''
+|align="center"|
+|align="center"|
+|align="center"| '''Long-Term Studies'''
+|align="center"|
+|align="center"|
+|-
+|
+|align="center"| PM<math display="inline">_{10}</math>
+|align="center"| PM<math display="inline">_{2.5}</math>
+|align="center"| UFP
+|align="center"| PM<math display="inline">_{10}</math>
+|align="center"| PM<math display="inline">_{2.5}</math>
+|align="center"| UFP
+|-
+| '''Mortality'''
+|align="center"|
+|align="center"|
+|align="center"|
+|align="center"|
+|align="center"|
+|align="center"|
+|-
+| All Causes
+|align="center"| xxx
+|align="center"| xxx
+|align="center"| x
+|align="center"| xx
+|align="center"| xx
+|align="center"| x
+|-
+| Cardiovascular
+|align="center"| xxx
+|align="center"| xxx
+|align="center"| x
+|align="center"| xx
+|align="center"| xx
+|align="center"| x
+|-
+| Pulmonary
+|align="center"| xxx
+|align="center"| xxx
+|align="center"| x
+|align="center"| xx
+|align="center"| xx
+|align="center"| x
+|-
+| '''Pulmonary Effects'''
+|align="center"|
+|align="center"|
+|align="center"|
+|align="center"|
+|align="center"|
+|align="center"|
+|-
+| Lung function, eg, PEF
+|align="center"| xxx
+|align="center"| xxx
+|align="center"| xx
+|align="center"| xxx
+|align="center"| xxx
+|align="center"|
+|-
+| Lung function growth
+|align="center"|
+|align="center"|
+|align="center"|
+|align="center"| xxx
+|align="center"| xxx
+|align="center"| x
+|-
+| '''Pulmonary Effects'''
+|align="center"|
+|align="center"|
+|align="center"|
+|align="center"|
+|align="center"|
+|align="center"|
+|-
+| Lung function, eg, PEF
+|align="center"| xxx
+|align="center"| xxx
+|align="center"| xx
+|align="center"| xxx
+|align="center"| xxx
+|align="center"|
+|-
+| Lung function growth
+|align="center"|
+|align="center"|
+|align="center"|
+|align="center"| xxx
+|align="center"| xxx
+|align="center"|
+|-
+| '''Asthma and COPD exacerbation'''
+|align="center"|
+|align="center"|
+|align="center"|
+|align="center"|
+|align="center"|
+|align="center"|
+|-
+| Acute respiratory symptoms
+|align="center"|
+|align="center"| xx
+|align="center"| x
+|align="center"| xxx
+|align="center"| xxx
+|align="center"|
+|-
+| Medication use
+|align="center"|
+|align="center"|
+|align="center"| x
+|align="center"|
+|align="center"|
+|align="center"|
+|-
+| Hospital admission
+|align="center"| xx
+|align="center"| xxx
+|align="center"|
+|align="center"| x
+|align="center"| x
+|align="center"|
+|-
+| '''Lung cancer'''
+|align="center"|
+|align="center"|
+|align="center"|
+|align="center"|
+|align="center"|
+|align="center"|
+|-
+| Cohort
+|align="center"|
+|align="center"|
+|align="center"|
+|align="center"| xx
+|align="center"| xx
+|align="center"| x
+|-
+| Hospital admission
+|align="center"|
+|align="center"|
+|align="center"|
+|align="center"| xx
+|align="center"| xx
+|align="center"| x
+|-
+| '''Cardiovascular effects'''
+|align="center"|
+|align="center"|
+|align="center"|
+|align="center"|
+|align="center"|
+|align="center"|
+|-
+| Autonomic nervous system
+|align="center"| xxx
+|align="center"| xxx
+|align="center"|
+|align="center"| x
+|align="center"| x
+|align="center"|
+|-
+| '''ECG-related endpoints'''
+|align="center"|
+|align="center"|
+|align="center"|
+|align="center"|
+|align="center"|
+|align="center"|
+|-
+| Autonomic nervous system
+|align="center"| xxx
+|align="center"| xxx
+|align="center"| xx
+|align="center"|
+|align="center"|
+|align="center"|
+|-
+| Myocardial substrate and vulnerability
+|align="center"|
+|align="center"| xx
+|align="center"| x
+|align="center"|
+|align="center"|
+|align="center"|
+|-
+| '''Vascular function'''
+|align="center"|
+|align="center"|
+|align="center"|
+|align="center"|
+|align="center"|
+|align="center"|
+|-
+| Blood pressure
+|align="center"| xx
+|align="center"| xxx
+|align="center"| x
+|align="center"|
+|align="center"|
+|align="center"|
+|-
+| Endothelial function
+|align="center"| x
+|align="center"| xx
+|align="center"| x
+|align="center"|
+|align="center"|
+|align="center"|
+|-
+| '''Blood markers'''
+|align="center"|
+|align="center"|
+|align="center"|
+|align="center"|
+|align="center"|
+|align="center"|
+|-
+| Pro-inflammatory mediators
+|align="center"| xx
+|align="center"| xx
+|align="center"| xx
+|align="center"|
+|align="center"|
+|align="center"|
+|-
+| Coagulation blood markers
+|align="center"| xx
+|align="center"| xx
+|align="center"| xx
+|align="center"|
+|align="center"|
+|align="center"|
+|-
+| Diabetes
+|align="center"| x
+|align="center"| xx
+|align="center"| x
+|align="center"|
+|align="center"|
+|align="center"|
+|-
+| Endothelial function
+|align="center"| x
+|align="center"| x
+|align="center"| xx
+|align="center"|
+|align="center"|
+|align="center"|
+|-
+| '''Reproduction'''
+|align="center"|
+|align="center"|
+|align="center"|
+|align="center"|
+|align="center"|
+|align="center"|
+|-
+| Premature birth
+|align="center"| x
+|align="center"| x
+|align="center"|
+|align="center"|
+|align="center"|
+|align="center"|
+|-
+| Birth weight
+|align="center"| xx
+|align="center"| x
+|align="center"|
+|align="center"|
+|align="center"|
+|align="center"|
+|-
+| IUR/SGA
+|align="center"| x
+|align="center"| x
+|align="center"|
+|align="center"|
+|align="center"|
+|align="center"|
+|}
+
+
+</div>
+
+</div>
+<div class="center">
+
+{|
+| ''''''Health Outcomes''''''
+|align="center"| '''Short-Term Studies'''
+|align="center"|
+|align="center"|
+|align="center"| '''Long-Term Studies'''
+|align="center"|
+|align="center"|
+|-
+|
+|align="center"| PM<math display="inline">_{10}</math>
+|align="center"| PM<math display="inline">_{2.5}</math>
+|align="center"| UFP
+|align="center"| PM<math display="inline">_{10}</math>
+|align="center"| PM<math display="inline">_{2.5}</math>
+|align="center"| UFP
+|-
+| '''Fetal growth'''
+|align="center"|
+|align="center"|
+|align="center"|
+|align="center"|
+|align="center"|
+|align="center"|
+|-
+| Premature birth                                                      
+|align="center"| x
+|align="center"|
+|align="center"|
+|align="center"|
+|align="center"|
+|align="center"|
+|-
+| Infant mortality
+|align="center"| xx
+|align="center"| x
+|align="center"|
+|align="center"|
+|align="center"|
+|align="center"|
+|-
+| Sperm quality
+|align="center"| x
+|align="center"| x
+|align="center"|
+|align="center"|
+|align="center"|
+|align="center"|
+|-
+| '''Neurotoxic effects'''
+|align="center"|
+|align="center"|
+|align="center"|
+|align="center"|
+|align="center"|
+|align="center"|
+|-
+| Central nervous system
+|align="center"|
+|align="center"| x
+|align="center"| xx
+|align="center"|
+|align="center"|
+|align="center"|
+|}
+
+
+</div>
+Notes: X, few studies (6 or less); XX, many studies (<math display="inline">7-10</math>); XXX, large number of studies (<math display="inline">>10</math>). Abbreviations: UFP, ultrafine particle; PEF, peak expiratory flow; COPD, chronic obstructive pulmonary disease; IUG, intrauterine growth restriction; SGA, small for gestational age.
+
+Aerosol concentration, size, structure and chemical composition are key factors in driving the health outcomes caused. However, these parameters are highly irregular in temporal and spatial schemes . As such, even though the effect of <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> exposure can be substantial, predicting a link between <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> and human health can be challenging. Most studies rely on obtaining the level of morbidity and mortality for a given disease which can be attributed to the exposure to <span acronym-label="pm" acronym-form="singular+abbrv">pm</span>. Some studies also employ questionnaires in collecting health related data.
+
+Long term exposure to PM<math display="inline">_{2.5}</math> increases the risk of total and <span acronym-label="cvd" acronym-form="singular+full">cvd</span> mortality. The study by  concludes that PM<math display="inline">_{2.5}</math> exposure has a substantial association with both total mortality and <span acronym-label="cvd" acronym-form="singular+abbrv">cvd</span> mortality, with <span acronym-label="cvd" acronym-form="singular+abbrv">cvd</span> having the highest hazard ratio of 1.10 for the study set of participants between 50 and 71 years.  state that a 10 <math display="inline">\mu</math>g/m<math display="inline">^{3}</math> increase in fine <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> results in an 8% – 18% increase in the mortality risk. A study conducted in six cities across the United States with a total of 8,111 participating adults found that fine particulate air pollution was linked with excess mortality .
+
+The <span acronym-label="ats" acronym-form="singular+abbrv">ats</span> report  for 2011 – 2013 found that 26% out of 21,400 excess morbidities and 26% out of 9,320 excess deaths were associated with elevated PM<math display="inline">_{2.5}</math> in the United States per year. A European study  estimated that a reduction of the PM<math display="inline">_{2.5}</math> abundance by 15 <math display="inline">\mu g/m^{3}</math> would prevent 16,926 deaths annually within a subset of 23 European cities. It also stated that a reduction would likely increase the life expectancy between one month and two years or even more. The study included major cities, London, Paris, Athens, Barcelona Madrid and Valencia. In the study, excess exposure to PM<math display="inline">_{2.5}</math> was viewed as a modifiable factor which causes cardiovascular morbidity and mortality.  found that the mortality associated with PM<math display="inline">_{10}</math> in Mumbai and Delhi during 2015 was 32,014 and 48,651 deaths, respectively.
+
+Cerebrovascular accidents are a prominent causes of morbidity through out the world. It was estimated that an increase of 10 <math display="inline">\mu</math>g/m<math display="inline">^3</math> of PM<math display="inline">_{2.5}</math> accounts for 1.29% (95% CI 0.552% - 2.03 %) increase in the risk of emergency hospital admissions .
+
+In some cases the maternal exposure to excess <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> has resulted in <span acronym-label="lbw" acronym-form="singular+full">lbw</span>. A multi-country evaluation of <span acronym-label="lbw" acronym-form="singular+abbrv">lbw</span> reveals that a 10 <math display="inline">\mu</math>g/m<math display="inline">^3</math> increase in PM<math display="inline">_{10}</math> (odds ratio (OR) = 1.03; 95% confidence interval (CI): 1.01, 1.05) and PM<math display="inline">_{2.5}</math> (OR = 1.10; 95% CI: 1.03, 1.18) exposure during the entire pregnancy are positively co-related with <span acronym-label="lbw" acronym-form="singular+abbrv">lbw</span>s .
+
+Excess <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> exposure can also be behind excess stress among individuals. Evidence has been found that Mitochondrially Encoded TRNA Phenylalanine (MT-TF) and Mitochondrially Encoded 12S RNA (MT-RNR1) is linked with metal-rich PM<math display="inline">_1</math> . Both Mitochondrial MT-TF and MT-RNR1 DNA methylation are sources of oxidative-stress which responds to foreign environments. Short term exposure to PM<math display="inline">_{2.5}</math> also prompts a mechanism involving pulmonary oxidative stress which in turn induces vascular insulin resistance and inflammation .
+
+Environmental pollution is a potential cause of lung cancer. Tandem Repeats are DNA sequences which lie adjacent to each other in the same orientation (direct tandem repeats) or in the opposite direction to each other. These DNA sequences are generally hypomethylated in cancer patients. A case study done on two contrasting groups on air pollution exposure of truck drivers and office workers reveal that <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> is linked with hypomethylation of some tandem repeats (SAT<math display="inline">\alpha</math>, NBL2) .
+
+The most likely candidates to be affected by unhealthy air are the elderly and infants.  concluded that PM<math display="inline">_{2.5}</math> is linked to both depressive and anxiety symptoms within older adults with the strongest association to individuals with lower socioeconomic measures.  confirms that school children between the age of 9 and 13 exposed to elevated air pollution experience ventilatory problems. A study conducted with a collection of 40 fifth grade school children revealed that the ‘soot’ fraction of PM<math display="inline">_{2.5}</math> is strongly linked with pollution related asthma attacks effecting children residing beside roadways .
+
+Using a business-as-usual emission scenario model,  estimates that premature mortality due to outdoor air pollution could double by 2050. As such, it is of utmost importance to conduct in depth research on <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> and other air pollutant sources in order to enforce proper air pollution policies .
+
+== Aerosol Climate Impacts ==
+
+In generic terms, the impact of aerosols on the climate can be divided into two distinct types: First, direct aerosol radiative forcing, and second, indirect responses to the radiative forcing . Radiative forcing can be defined as changes within the atmospheric energy fluxes of electromagnetic radiation . The indirect responses can effect atmospheric temperature, wind, rainfall and extreme weather events .
+
+=== Aerosol Radiative Forcing ===
+
+Direct impacts occur through aerosol light extinction (absorption and/or scattering) impacting the radiative balance of the atmosphere and visibility. Indirect impacts occur due to altering fog formation and precipitation due to the changing abundance of the aerosols that are also acting as <span acronym-label="ccn" acronym-form="singular+full">ccn</span>. These impacts in turn lead to changes in the temperature and wind fields  which are classified as climate responses. Many challenging complexities are involved in understanding and modeling these interactions . Back in 1977,  cited five ways in which atmospheric aerosols can affect the radiative balance resulting in either a warming or cooling of the planet.
+
+# Scattering and absorbing incoming solar radiation.
+# Scattering and absorbing solar radiation reflected from the surface.
+# Influencing the creation and the lifespan of clouds by means of droplet concentration, coagulation and by influencing ice crystal formation within freezing temperatures.
+# Scattering and absorbing exiting infrared radiation.
+# Influencing infrared radiation by effecting cloud formation.
+
+These effects are illustrated on figure [[#fig:climate|2.1]].
+
+Radiative forcing typically refer to a change in net radiative flux having the units of heat flux (Wm<math display="inline">^{-2}</math>) where an energy gain for the climate is considered positive. . The term ‘aerosol effects’ refers to climate effects emerging through both natural and anthropological sources of aerosols. However it is important to note that ‘radiative forcing’ refers to climate effects due to only anthropological or external sources . Both direct and indirect radiative forcing can be studied via the <span acronym-label="aod" acronym-form="singular+full">aod</span> which is defined as the amount of incident light either scattered or absorbed by airborne particles .
+
+<div class="center">
+
+[[File:figures/climate.png|thumb|none|alt= Aerosol Climate Effects. Direct effects occur through aerosol light extinction (absorption and/or scattering). Indirect impacts arise due to alteration of cloud brightness and possibly lifetime via atmospheric aerosols. Since pertubed clouds have more aerosols, it has more aerosol particle in which to condense. The small black dots represent aerosol particles; Larger white circles represents cloud droplets; Dotted straight arrows represent short-wave radiation and the curvy arrows represents long-wave radiation; Crystal signs represents ice crystals. Figure adapted from . | Aerosol Climate Effects. Direct effects occur through aerosol light extinction (absorption and/or scattering). Indirect impacts arise due to alteration of cloud brightness and possibly lifetime via atmospheric aerosols. Since pertubed clouds have more aerosols, it has more aerosol particle in which to condense. The small black dots represent aerosol particles; Larger white circles represents cloud droplets; Dotted straight arrows represent short-wave radiation and the curvy arrows represents long-wave radiation; Crystal signs represents ice crystals. Figure adapted from . ]]
+
+
+</div>
+==== Direct Radiative Forcing ====
+
+Direct aerosol climate phenomena can often be observable. One such example is the observation of sunlight being reflected from a haze seen from a higher view point such as a mountain top . It is a well known fact that sulphate aerosols released from volcanoes results in atmospheric cooling . Thus, the anthropogenic sulphates may cause similar effects, which would qualify as a consequence of direct radiative forcing . However the direct radiative forcing due to soot particle have an opposite outcome.  estimates that the direct radiative forcing due to soot (Black Carbon) particles is 0.16 Wm<math display="inline">^{-2}</math> as compared to -0.32 Wm<math display="inline">^{-2}</math> for sulphate aerosols. In fact, <span acronym-label="bc" acronym-form="singular+full">bc</span> aerosols are estimated to contribute to comparatively large scale positive radiative forcing in within urban environments . The physics of direct radiative forcing is well established.  lists four cases of scattering which encapsulates direct radiative forcing.
+
+<ol>
+<li><p>Single Rayleigh Scattering: When scattering occurs through particulate diameters which are smaller than the incident wavelength, the physics of scattering is governed by Rayleigh scattering which relies on the far field solution for an electromagnetic dipole interaction. The theory assumes that the interaction with a particulate mimics that of a electromagnetic dipole. The scattered field at a distance <math display="inline">r</math> away from the particulate (at point <math display="inline">P</math>) is given by, <math display="block">E = \dfrac{\omega^{2}}{{c^{2}r}}\exp\left[{i\omega \left(t-{\dfrac{r}{c}}\right)}\right]\hat{r}\times (\hat{p}\times\hat{r}) 
+    \label{DipoleEM}</math> where <math display="inline">c</math> is the speed of light and vectors <math display="inline">\hat{r}</math> and <math display="inline">\hat{p}</math> stand for the ''unit'' vectors of <math display="inline">r</math> and dipole vector <math display="inline">p</math>. The induced dipole moment can be denoted as, <math display="block">p = \alpha E_o e^{i\omega t}</math> where <math display="inline">\alpha</math> is the polarizabilty of the particulate. Figure [[#fig:RayleighScattering|2.2]] gives the scattering geometry where the unit vectors <math display="inline">\hat{e_l}</math> and <math display="inline">\hat{e_r}</math> denote the ''unit'' vectors for the parallel and perpendicular components of the scattering plane respectively.</p>
+<div class="center">
+
+[[File:figures/rayleighScattering.png|thumb|none|alt=Scattering Geometry. Figure adapted from |Scattering Geometry. Figure adapted from ]]
+
+
+</div>
+<p>The individual components of <math display="inline">E_0</math> can be denoted as (<math display="inline">E_{0r}\hat{e_r}+E_{0l}\hat{e_l}</math>) and as such <math display="inline">E_{r} (r)</math> and <math display="inline">E_{l} (r)</math> becomes, <math display="block">E_r (r) = \dfrac{\alpha\omega^{2}}{{c^{2}r}}\exp\left[{i\omega \left(t-{\dfrac{r}{c}}\right)}\right]E_{0r}\hat{e_r}</math> <math display="block">E_l (r) = \dfrac{\alpha\omega^{2}}{{c^{2}r}}\exp\left[{i\omega \left(t-{\dfrac{r}{c}}\right)}\right]E_{0l}~\cos{\theta} (\hat{e_l}\times\hat{r})</math> The resulting scattering intensity for unpolarized incident light can be derived via the poynting vector. <math display="block">I (\theta,r) = \dfrac{\alpha^{2}\omega^{4}}{{c^{4}r^{2}}} \left(1+\cos^2{\theta}\right)I_0</math> <math display="inline">I</math> and <math display="inline">I_0</math> are the scattered and incident energy intensities.</p></li>
+<li><p>Single Mie Scattering: The complete solution of the Maxwell’s equations for particulate scattering is derived through the Mie solution. As such, when particulate diameters are equal or larger than the incident wavelength, Mie solutions are considered. However, the exact computations of the solution is somewhat rigorous.  provides the Mie solution as, <math display="block">I (\theta,r) = \dfrac{I_0\lambda^{2} (i_1+i_2)}{8\pi^{2}r^{2}}</math> <math display="inline">r,\theta,I_0,I</math> and <math display="inline">\lambda</math> follow the conventions followed in the derivation of Rayleigh Scattering. <math display="inline">i_1</math> and <math display="inline">i_2</math> define the Mie intensity parameters where scattered intensities for perpendicular (<math display="inline">I_1</math>) and parallel (<math display="inline">I_2</math>) polarization’s are given as, <math display="block">I_1 (r) = \dfrac{I_0\lambda^{2}i_1}{4\pi^{2}r^{2}}</math> and <math display="block">I_2 (r) = \dfrac{I_0\lambda^{2}i_2}{4\pi^{2}r^{2}}</math> respectively. Both <math display="inline">i_1</math> and <math display="inline">i_2</math> are complicated functions depending on <math display="inline">\alpha,\theta</math> and infinite series of Legendre polynomials and Bessel functions.</p></li>
+<li><p>Multiple Rayleigh Scattering: We encounter collections of particles in nature rather than single particles. A rigorous theoretical treatment of multiple particle scattering is indeed formidable. Conditions under which the single scattering requirement is satisfied can often be difficult to state precisely. However, a few studies gives a thorough review on multiple Rayleigh scattering .</p></li>
+<li><p>Multiple Mie Scattering: Multiple Mie scattering increases the complexity of Mie theory significantly. Nevertheless, many approaches are taken for the study of multiple Mie Scattering .</p></li></ol>
+
+Figure [[#fig:MieVsRayleighScattering|[fig:MieVsRayleighScattering]]] gives a contrast between intensities of Rayleigh and Mie scattering. The contrast highlights the dominance of the forward fraction of Mie Scattering.
+
+==== Indirect Radiative forcing ====
+
+Aerosol thermodynamics can effect cloud formation dynamics and electrical processes within clouds . Aerosols has the capability of accumulating water vapor during cloud formation . Such accumulation sites are known as <span acronym-label="ccn" acronym-form="singular+full">ccn</span>. Droplet clouds plays a major role in governing the albedo and consequently the temperature of the planet . The amount of light emerging from clouds depends only on the macro physics of the clouds.  lists three such major macro physical quantities:
+
+# Optical Thickness (<math display="inline">\tau</math>): The optical thickness is a dimension less quantity which defines the amount of blockage a cloud provides on passing light. For example, a unit incident light beam will result in <math display="inline">e^{-\tau}</math> of light beam emerging.
+# Single Scattering Albedo (SSA, <math display="inline">\bar{\omega}</math>): The ratio of the scattering albedo to the sum of scattering and absorption is defined as Single Scattering Albedo .
+# Asymmetry Factor (<math display="inline">\overline{\cos{\theta}}</math>): The cosine of the scattering angle is defined as the asymmetry factor.
+
+ follows up by stating that potentially, reflectively of solar energy may be increased via anthropological sources of cloud nuclei.  provides key findings linking organic aerosols with cloud nucleation. However, the literature concludes that even on vicinity’s where anthropological aerosols are effective, organic aerosols may cause a climatic influence at least as strong as of sulphate aerosols via cloud condensation nuclei.
+
+==== Climate Responses ====
+
+The term ‘white house effect’ is a term define the cooling effect due to atmospheric aerosols.  provides a thorough review on the phenomena and recognizes that the effect can be comparable to the reverse ‘green house effect’ on a global average over the time period considered. Such localized surface cooling phenomena take place during volcanic eruptions due to negative radiative forcing via sulphate aerosols . Same conclusions have been made using studies based on the Greenland ice sheet for the past 10,000 years . However volcanic eruptions also result in heating the stratosphere by absorbing both solar and terrestrial radiation .
+
+Man made atmospheric aerosols tends to have negative effects on the global climate.  states that <span acronym-label="bc" acronym-form="singular+abbrv">bc</span> aerosols considerable effect precipitation and temperature changes which disturbs the hydrologic cycle resulting in compelling regional climate effects.  concludes that the increasing concentrations of <span acronym-label="bc" acronym-form="singular+abbrv">bc</span> with the decrease of sulphate aerosols resulted in the rapid increase of temperatures over the arctic withing the past three decades. It is estimated that within an Indian industrial city, the short wave atmospheric absorption from <span acronym-label="bc" acronym-form="singular+abbrv">bc</span> converts to a lower atmospheric heating of <math display="inline">1.8^{\circ}K</math> per day . Recent studies reveal that reducing <span acronym-label="bc" acronym-form="singular+abbrv">bc</span> alone would slow down the exceeding of increase of global temperatures to more than <math display="inline">2^{\circ}C</math> due to anthropological aerosols . It is presumed that these effects may even effect other climatic phenomena such as monsoons .
+
+=== Atmospheric Chemistry ===
+
+Atmospheric aerosols also play a role in atmospheric chemistry, for example, sea-salt aerosols have an impact on the atmospheric cycles of nitrogen, sulfur, and atmospheric oxidants through halogen radicals and reactions on mineral aerosols . Atmospheric aerosol pollutants are primarily released to the atmosphere via the use of coal to produce electricity, via base-metal smelting and through fuel combustion in vehicles. These procedures results in the emission of sulfur and nitrogen oxides which intern reacts with photo-chemical products and airborne particulates to form acid aerosol . The chemical reactions occurring due to sulfate aerosols are known to make ozone layer more vulnerable to atmospheric chlorine and as such to anthropological chlorofluorocarbons . Aerosols also affect other atmospheric chemical cycles either as a catalyst or as a active reactant and hence is a fundamental constituent in atmospheric physics.
+
+= Particulate Sensors =
+
+Aerosol measurement has been a primary constituent of aerosol research since the late 1980’s . The study of the properties, behavior, and physical principles of aerosols and the applications of this knowledge to their measurement and control can be defined with the term aerosol technology . Over the years, aerosol technology has seen many leaps and bounds. Modern sensing can be categorized into two main branches of remote sensing systems and in-situ observations, both systems having its own pros and cons.
+
+== Remote Sensing Systems ==
+
+The term ‘remote sensing’ can be defined as the art or science of telling something about an object without touching it . The mechanism of detecting aerosol concentrations using satellite imaging is one form of remote sensing. Aerosol remote sensing devices typically rely on visible to near-infrared spectral channels . Well-calibrated multi spectral radiometers, multi spectral polarimeters, and multi angle spectro-radiometers are some examples of such devices.  lists 4 such remote sensing devices:
+
+# <span acronym-label="modis" acronym-form="singular+full">modis</span>
+# <span acronym-label="seawifs" acronym-form="singular+full">seawifs</span>
+# <span acronym-label="viirs" acronym-form="singular+full">viirs</span>
+# <span acronym-label="seviri" acronym-form="singular+full">seviri</span>
+
+A study by  used satellite <span acronym-label="aod" acronym-form="singular+abbrv">aod</span> data from <span acronym-label="modis" acronym-form="singular+abbrv">modis</span> and <span acronym-label="seawifs" acronym-form="singular+abbrv">seawifs</span> satellite instruments, along with meteorological analyses from <span acronym-label="nasa" acronym-form="singular+abbrv">nasa</span>’s <span acronym-label="merra" acronym-form="singular+full">merra</span>, together with in-situ observations of PM<math display="inline">_{2.5}</math> and <span acronym-label="ml" acronym-form="singular+full">ml</span> to estimate global abundance of ground level presence of <span acronym-label="pm" acronym-form="singular+abbrv">pm</span>. Although such studies pertains a global coverage, the optimum spatial grid resolution achieved is approximately <math display="inline">10\times10</math>  km (<math display="inline">\approx 0.1^\circ\times 0.1^\circ</math>). As such, remote sensing techniques usually can not characterize the aerosol micro climates at the neighborhood scale. The ground survey vehicle work of  provides observations at less than a meter spatial resolution and showed evidence on such micro climates existing within parts of Richardson, and Garland, TX. To address this issue, the use of ground based in-situ observation systems are needed.
+
+== In-situ Observation Systems ==
+
+The current study is based mainly of in-situ observation systems.  gives a concise summary on the pre-classical (prior to 1900) and the classical periods (1900-1955) of aerosol measurement. During these stages, all aerosol measurement technologies were based on stationary, in-situ devices. Unlike modern devices, classical devices contained no lasers, no computers, and no spectral analytic tools. As such, their initial functions and design is of historical importance only . However the working mechanisms bred within the classical and pre classical periods remain applicable to modern aerosol science . For example, Tyndall phenomenon, initially studied in 1869 provided the logical basis for ultra microscopes and <span acronym-label="opc" acronym-form="singular+long">opc</span>s .
+
+The <span acronym-label="usepa" acronym-form="singular+abbrv">usepa</span> was established on the 2<math display="inline">^{nd}</math> of December, 1970 . Due to concerns with regard to human health and the environment, the current stature of the <span acronym-label="usepa" acronym-form="singular+abbrv">usepa</span> recognized 6 criteria pollutants which includes <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> . As per federal regulations, the <span acronym-label="usepa" acronym-form="singular+abbrv">usepa</span> along with state, local, and tribal governments operate <span acronym-label="frm" acronym-form="singular+full">frm</span> and <span acronym-label="fem" acronym-form="singular+full">fem</span> instruments . These instruments are designed and maintained within strict supervision that ensures acceptable use within state and local air quality surveillance systems . Both <span acronym-label="frm" acronym-form="singular+abbrv">frm</span> and <span acronym-label="fem" acronym-form="singular+abbrv">fem</span> instruments remain expensive and highly impractical for personnel use . A new criterion of air quality monitoring instruments are emerging on consumer markets as a result of growing concerns on public health issues due to air pollution. These instruments are coined either as low-cost air quality sensors  or as Consumer Aerosol Monitors . The portability, affordability, and ease of use of such low-cost air quality sensors has led them to rapidly grow in popularity . Due to there affordability, low-cost sensors have the potential in increasing the temporal and the spatial density of air quality data and in turn providing vital advances in air quality research .
+
+=== Federal Reference Method (FRM) Instruments ===
+
+For <span acronym-label="pm" acronym-form="singular+abbrv">pm</span>, the <span acronym-label="usepa" acronym-form="singular+abbrv">usepa</span> has designated an <span acronym-label="frm" acronym-form="singular+abbrv">frm</span> which runs on an integrated, gravimetric method . The underling principle behind the gravimetric analysis is the measurement of the increase in weight of a filter following a pre-defined sampling period in which a known volume of aerosols are passed through a filter . These instruments consists of multiple stages of impactors which blocks the flow of any particulates larger than the size intended . The left over masses of aerosols are collected on a polytetrafluoroethylene (PTFE) Teflon sample filter to be weighed as par <span acronym-label="usepa" acronym-form="singular+abbrv">usepa</span> specifications for <span acronym-label="frm" acronym-form="singular+abbrv">frm</span> instruments. Further specifications of <span acronym-label="frm" acronym-form="singular+abbrv">frm</span> instruments for both PM<math display="inline">_{2.5}</math> and PM<math display="inline">_{10}</math> can be found at  and  respectively.
+
+=== Federal Equivalent Method (FEM) Instruments ===
+
+<span acronym-label="fem" acronym-form="singular+abbrv">fem</span> instruments can be deemed as the futuristic technologies tested to make ways in becoming <span acronym-label="frm" acronym-form="singular+abbrv">frm</span> devices . These instruments are based on contrasting technologies when compared with <span acronym-label="frm" acronym-form="singular+abbrv">frm</span>s. However, they undergo and abide by rigorous bounds defined by the <span acronym-label="usepa" acronym-form="singular+abbrv">usepa</span> for <span acronym-label="fem" acronym-form="singular+abbrv">fem</span> devices. <span acronym-label="fem" acronym-form="singular+abbrv">fem</span> covers an array of technologies dedicated in <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> measurement instruments. A list of such technologies are summarized below.
+
+<ol>
+<li><p><span acronym-label="bam" acronym-form="singular+full">bam</span>: These monitors are considered to be semi-continuous atmospheric particulate measurement instruments . <span acronym-label="bam" acronym-form="singular+abbrv">bam</span>s usually consists of a size selective inlet, a filter tape, beta radiation source, and a beta radiation detector . <span acronym-label="bam" acronym-form="singular+abbrv">bam</span>s collect <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> on a thin film and <math display="inline">\beta</math> particle spectrums from the radiation source is passed through the said thin film and via the number of electrons transmitted, the mass of <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> is determined. The radiation reaching through the thin film decays exponentially.  quotes an approximated relationship governing the phenomena as <math display="block">I = I_0 e^{-\mu_{m} x} 
+    \label{BetaAttenuation1EQ}</math> where <math display="inline">I_0</math> is the incident flux, <math display="inline">\mu_m</math> is the absorption coefficient (cm<math display="inline">^2</math>/g) and <math display="inline">x</math> is the mass density of the sample. <math display="inline">\mu_m</math> and <math display="inline">I_0</math> can be determined through measuring <math display="inline">I</math> as a function of <math display="inline">x</math> on predefined, known measurements . This paves way to the derivation of <math display="inline">x</math> though equation [[#BetaAttenuation2EQ|[BetaAttenuation2EQ]]] : <math display="block">x = \dfrac{1}{\mu_m} ln\left[\dfrac{I_0}{I}\right]
+    \label{BetaAttenuation2EQ}</math> As these monitors work under a constant flow rate <math display="inline">Q</math> for a specific time <math display="inline">t</math>, the mass density can be derived through the following equation . <math display="block">c\left (\dfrac{kg}{m^3}\right) = \dfrac{A (m^2)}{Q\left (\dfrac{m^3}{s}\right)t (s)}\times x\left (\dfrac{kg}{m^2}\right) 
+    \label{BetaAttenuation3EQ}</math> On equation [[#BetaAttenuation3EQ|[BetaAttenuation3EQ]]], <math display="inline">c</math> gives the mass concentration of <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> and <math display="inline">A</math> gives the cross sectional area of the thin film. The combination of [[#BetaAttenuation2EQ|[BetaAttenuation2EQ]]] and [[#BetaAttenuation3EQ|[BetaAttenuation3EQ]]] gives the conventional <math display="inline">\mu g/m^{3}</math>  via equation [[#BetaAttenuation4EQ|[BetaAttenuation4EQ]]], <math display="block">\dfrac{D}{\mu} ln \left (\dfrac{I_0}{I}\right)  
+        \label{BetaAttenuation4EQ}</math> where <math display="inline">D</math> is comprised of the relevant constant conversion factor.  states that for low energy beta emitters, <math display="inline">\mu</math> is somewhat independent of the chemical composition of the absorbers.  further quotes that as compared with gravitimetric methods, handling of fragile filter samples as well as the risk of contamination is reduced with <span acronym-label="bam" acronym-form="singular+abbrv">bam</span>s.</p></li>
+<li><p><span acronym-label="teom" acronym-form="singular+full">teom</span>: <span acronym-label="teom" acronym-form="singular+abbrv">teom</span>s working principle is based on detecting changes in oscillation frequencies of a vibrating collection substrate on which <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> is collected on . <span acronym-label="teom" acronym-form="singular+abbrv">teom</span> itself is a specialized tapered hollow tube made from elastic, glass like material in which particulates are passed through . Equation [[#TEOMEQ|[TEOMEQ]]] governs the working principle of a <span acronym-label="teom" acronym-form="singular+abbrv">teom</span> and is derived from the equations of motion of a simple harmonic oscillator,</p>
+<p><math display="block">\Delta m = K_o \left (\dfrac{1}{f_a^2}-\dfrac{1}{f_b^2}\right)
+    \label{TEOMEQ}</math></p>
+<p>where <math display="inline">\Delta m</math> refers to the change in mass collected, <math display="inline">K_0</math> is a constant (spring constant) unique to each <span acronym-label="teom" acronym-form="singular+abbrv">teom</span>, <math display="inline">f_b</math> and <math display="inline">f_a</math> refers to the frequencies of the oscillating elements before and after mass collection respectively . The one downside of <span acronym-label="teom" acronym-form="singular+abbrv">teom</span> is its sensitivity to ambient humidity. In order to avoid its bias due to humidity, both the sampler inlet and the filter is kept at <math display="inline">50\si{\degree}C</math>. However, this may result in a loss of volatile particulates .</p></li>
+<li><p>Light Scattering Techniques: <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> sensing can be done through one of three optical techniques: light absorption, light extinction and light scattering . Most in-situ <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> devices use optical methods . This study is based mostly on light scattering instruments. The ratio between particle sizes and incident wave lengths of light are direct influences of light scattering patterns. As such, these patterns are used to detect particle sizes of individual particles using Raleigh and Mie Scattering techniques for different particle sizes . Photometers, <span acronym-label="opc" acronym-form="singular+long">opc</span>s and <span acronym-label="cpc" acronym-form="singular+long">cpc</span>s uses these techniques in <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> monitoring. Light scattering devices within itself is divided into two classes as given by :</p>
+<ol>
+<li><p>Light dispersion by single particles: These devices can only count individual particles as they pass through a light source. As such high concentrations of particulate volumes may result in erroneous readings . <span acronym-label="opc" acronym-form="singular+abbrv">opc</span>s belong to this category of sensing.</p></li>
+<li><p>Light Scattering photometer by an ensemble of particles: Photometers detect all particles present within a sensing volume. As such they may not be able to provide detailed information on individual particles as they may be lost due to averaging .</p></li></ol>
+</li></ol>
+
+=== Research Grade Reference Instruments ===
+
+The current dissertation relies on two research grade <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> sensing devices which falls under the category of <span acronym-label="opc" acronym-form="singular+abbrv">opc</span>s. These aren’t as expensive as <span acronym-label="fem" acronym-form="singular+abbrv">fem</span> devices, yet they provide the closest possible accuracy of <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> sensors that can be attained and they can be used as mobile sensors due to their portability. They also provide a range of information far superior to commercially available <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> sensors.
+
+<ol>
+<li><p>GRIMM Portable Laser Aerosol Spectrometer and Dust Monitor Model 1.109:</p>
+<div class="center">
+
+[[File:figures/GRIMMF.png|thumb|none|alt=Portable Laser Aerosol Spectrometer and Dust Monitor Model 1.109|Portable Laser Aerosol Spectrometer and Dust Monitor Model 1.109]]
+
+
+</div>
+<p>The GRIMM 1.109 can be categorized an <span acronym-label="opc" acronym-form="singular+abbrv">opc</span>. The sensor has the capability of measuring particulates of diameters between 0.25 <math display="inline">\mu</math>m and 32 <math display="inline">\mu</math>m distributed within 32 size channels. Such a wide range of diameter space is made possible due to intensity modulation of the laser source. Particulates pumped into the sensor are detected through scattering a laser beam of 655 nm into a light trap. Figure [[#fig:GRIMM_Process|3.2]] is a detailed schematic of the aerosol sensing operation used by the GRIMM 1.109.</p>
+<div class="center">
+
+[[File:figures/GRIMMProcess.png|thumb|none|alt=Measuring principle for GRIMM Portable Laser Aerosol Spectrometer and Dust Monitor Model 1.109. Figure adapted from |Measuring principle for GRIMM Portable Laser Aerosol Spectrometer and Dust Monitor Model 1.109. Figure adapted from ]]
+
+
+</div>
+<p>As figure [[#fig:GRIMM_Process|3.2]] indicates the laser beam is aimed at particulates coming through a sensing chamber at 1.21 l/min flow rate. Working under the assumption of sphericity the GRIMM device classifies particulates into specific size classes subject to its intensity and further gives out the specific mass fraction with the assumption of the particle density being 1.6 g/cm<math display="inline">^{3}</math> . The optical arrangement of the sensor is staged such that a curved optical mirror placed at an average scattering angle of <math display="inline">\ang{90}</math> collects and redirects the scattered light towards a photo sensor. The wide angle of the optical mirror (<math display="inline">\ang{120}</math>) is meant to increase the light intensity redirected towards the photo sensor within the Rayleigh scattering domain which decreases the minimum detectable particle size. It furthermore compensates for Mie Scattering undulations caused by the monochromatic illumination.</p>
+<p>Through out this study the, sensing period of the GRIMM sensor was set to 6 <math display="inline">sec</math> which is the most frequent period that the GRIMM sensor is capable of. It also provides 3 standardized mass fractions based on occupational health (Repairable, Thoracic and Alveolic) according to EN 481  as well as PM<math display="inline">_{1}</math>, PM<math display="inline">_{2.5}</math> and PM<math display="inline">_{10}</math>.</p>
+<p>It is important to note that the GRIMM EDM-180 which is a <span acronym-label="fem" acronym-form="singular+abbrv">fem</span> Instrument is an extension of the GRIMM 1.109 . GRIMM 1.109 has being a focal point of many previous reputable <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> studies .</p></li>
+<li><p>Fidas Frog:</p>
+<div class="center">
+
+[[File:figures/palas.jpg|thumb|none|alt=Fidas Frog: Portable Dust Measurement Device|Fidas Frog: Portable Dust Measurement Device]]
+
+
+</div>
+<p>The Fidas Frog is quite similar to the GRIMM and it can also be categorized as an <span acronym-label="opc" acronym-form="singular+abbrv">opc</span> which uses Lorenz-Mie scattering fundamentals for analysis of aerosol particles. However, the Fidas Frog has a broader range of aerosol measurement which spans between particulate diameters of 0.18 <math display="inline">\mu</math>m and 100 <math display="inline">\mu</math>m and is capable of reading data at a frequency of 1 <math display="inline">Hz</math>. The measurement span is distributed within 94 size channels. The sensing and the evaluation of the respective mass fractions are done using technologies based on the EN-certified Fidas 200 S system . The Fidas Frog also carries modern conveniences such as a portable tablet with WiFi as well as a portable battery that can keep the device alive for 8 hours without external power. The primary measurements of the Fidas Frog are PM<math display="inline">_{1}</math>, PM<math display="inline">_{2.5}</math>, PM<math display="inline">_{4}</math>, PM<math display="inline">_{10}</math>, PM<math display="inline">_{total}</math> and Particle Concentration. Some devices also collect temperature, pressure and humidity readings as well as location data. The Fidas Frog sensing device is utilized in variety of recent studies on Nano filtration systems , air pollution  as well as air quality &amp; sensing studies .</p></li></ol>
+
+=== Standardized Commercial Sensors ===
+
+Commercially available sensors are somewhat inaccurate compared to research grade sensors. But the current study focuses on using such sensors to get as close to as possible to the accuracy of research grade <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> sensors. These sensors did perform admirably compared to cheaper <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> sensors which are readily available on commercial platforms. Such feat is reached via careful calibration of <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> sensors using <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> Algorithms.
+
+<ol>
+<li><p>Alpha Sense OPC-N2: The Alpha Sense OPC-N2 (http://www.alphasense.com/) is a small (75 <math display="inline">mm</math> <math display="inline">\times</math> 60 <math display="inline">mm</math> <math display="inline">\times</math> 65 <math display="inline">mm</math>), light weight (under 105 g) and affordable  <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> sensor used in variety of calibration &amp; evaluation studies . Most studies quote that these sensors cost within the range of $300 to $500 . These sensors use similar technologies used in conventional <span acronym-label="opc" acronym-form="singular+abbrv">opc</span>s where particle size is determined via a calibration based on Mie scattering. Unlike most <span acronym-label="opc" acronym-form="singular+abbrv">opc</span>s, the OPC-N2 does not include a pump and a replaceable particle filter in order to pump aerosol samples through a narrow inlet tube, hence avoiding the need for regular maintenance . A sufficient airflow through the sensor is made possible with a low powered micro fan producing a sample flow rate of 220 <math display="inline">ml/min</math> .</p>
+<p>The OPC-N2 provides mass fractions for PM<math display="inline">_{1}</math>, PM<math display="inline">_{2.5}</math> and PM<math display="inline">_{10}</math> assuming a default mass density of 1.65 <math display="inline">g/ml</math> and refractive index of <math display="inline">1.5+i0</math>. The OPC-N2 also provides particle counts for 16 size channels of particle diameters ranging from 0.38 <math display="inline">\mu</math>m to 17 <math display="inline">\mu</math>m . This is extremely useful for <span acronym-label="ml" acronym-form="singular+long">ml</span> calibrations. The OPC-N2 is capable of sensing frequencies as low as 1 Hz, and, as such, is well-suited to <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> monitoring within areas with high variability in <span acronym-label="pm" acronym-form="singular+abbrv">pm</span>. The out of the box calibration for the OPC-N2 is done using polystyrene spherical latex particles of a known diameter and known refractive index (RI). A comprehensive analysis on the calibration with the use of polystyrene spherical latex particles is done by .</p></li>
+<li><p>Alpha Sense OPC-N3: The OPC-N3 is an improved version of the OPC-N2 and they are similar in shape, size and the underlying principle of sensing. The newer alpha sense is capable of on-board data logging as well as measuring particulates of diameters up to 40 <math display="inline">\mu</math>m. This enables the OPC-N3 to measure pollen and other biological particulates. The on-board data is saved within an SD card which can be accessed through micro-USB cable connected to the <span acronym-label="opc" acronym-form="singular+abbrv">opc</span>. Furthermore the OPC-N3s lower sensing diameter is reduced to 0.35 <math display="inline">\mu</math>m as suppose to its predecessors lower limit of 0.38 <math display="inline">\mu</math>m. The wider range of sensing is made possible via the OPC switching between high and low gain modes automatically. The OPC-N3 also has made improvements to its flow path to reduce turbulence and is capable of running the fan at reduced speed to meet the same criterion .</p>
+<p>Both the OPC-N2 and the OPC-N3 calculates its <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> values abiding by the method defined by the European Standard EN 481 .</p></li></ol>
+
+=== Cheaper Commercial Sensors ===
+
+The current section focuses on sensors which can be bought for less than <math display="inline">\$250</math> and hence will lack the performance of standardized <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> sensors. However these sensors in numbers may be able to produce better results similar to standardised <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> measurement devices.
+
+# Shinyei PPD42NS: The cost of the PPD42NS is approximately <math display="inline">\$</math>10 per unit . The sensor is capable of measuring particulates ranging between <math display="inline">1</math> and 2.5 <math display="inline">\mu</math>m in diameter . Many previous studies has focused on evaluation and calibration of the PPD42NS sensor . The sensing mechanism for these sensors are somewhat unique. Unlike <span acronym-label="opc" acronym-form="singular+abbrv">opc</span>s, the PPD42NS looks at an occupancy time corresponding to a lower voltage. The basic design for the sensor houses a infrared <span acronym-label="led" acronym-form="singular+full">led</span> positioned in a forward angle with respect to a photo diode. A resistive heater within a light chamber helps in moving air pockets from the intake to the outlet of the sensors. When particles go through the expected route, the <span acronym-label="led" acronym-form="singular+abbrv">led</span> light is scattered and the scattered light is focused towards the photo detector via a focus lens within the chamber. When scattered light hit the photo detector, the output voltage is held low. As such, the final measurements are made as <span acronym-label="lpo" acronym-form="singular+full">lpo</span>, the percentage of time in which the sensors output a lower voltage compared with the total sampling time. .
+# AirBeam1 and AirBeam2: Both Airbeam sensors produces temperature, humidity and <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> values. The sensor used within the Airbeam sensor ensemble is the Shinyei PPD60PV  which users similar working mechanism to the Shinyei PPD42NS in measuring <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> values. The Airbeam1 only detects PM<math display="inline">_{2.5}</math> while its predecessor measures PM<math display="inline">_{1}</math>, PM<math display="inline">_{2.5}</math> and PM<math display="inline">_{10}</math>. The unique feature about the Airbeams are they can connect to mobile devices through Bluetooth and hence is capable of uploading data to the manufacturers (HabitatMap Inc., Brooklyn, NY, USA) data servers. Furthermore, the mobile connectivity is utilized to gain location data as well as storing and distribution of data via the mobile device . Due to Airbeam sensors’ ease of use, they are considered ideal for citizen science initiatives where data collection is done by the general public . Such real-time data is usually made available to the public through mobile app platforms .
+
+== Weather RADAR Systems ==
+
+Using RADARs for observing weather was initiated during World War II. In 1935, a Scottish physicist and meteorologist, Sir Robert A. Watson-Watt designed a thundercloud location finder which was reworked into a military target finder. The technology was regarded as a major advantage for the Royal Air Force . Most atmospheric RADAR measurements investigate atmospheric phenomena such as rainfall, cloud cover, wind direction and magnitude, and other related phenomena. A RADAR of this type operates between frequencies of 3 GHz and 10 GHz (equivalently, 10 cm and 3 cm in wavelength). High-frequency RADARs may be used to track tiny particles and droplets in the air. High-frequency RADARs are also employed to detect small cloud particles, light snow flakes, fog, and light rain. Low-frequency radars are designed to detect changes in the refractive index of the clear atmosphere. They are the best at detecting wind speed and direction.
+
+The first ever network of weather surveillance RADARs were deployed in Panama in April of 1944. Due to damage caused by severe weather, the US congress assigned a major increase in funding for warning systems. This eventually resulted in the Weather Bureau’s flagship radar Weather Surveillance RADAR - 1957 (WSR-57). Throughout the United states, the National Weather Service installed 66 WSR-57 RADARs and they were eventually retired with the birth of the Weather Surveillance RADARs - 1988 Doppler (WSR-88D) or NEXRAD. The current dissertation presents the use of measurements from NEXRAD RADARs and its application to identify atmospheric aerosols.
+
+=== NEXRAD Weather RADAR ===
+
+The NEXRAD RADAR is a collaborative project ran by the the National Weather Service (NWS; Department of Commerce), Federal Aviation Administration (Department of Transportation), and the Air Force Air Weather Service and Naval Oceanography Command (Department of Defense) . There are approximately 160 Weather RADARs deployed within the United States and at selected overseas sites under the NEXRAD program , all deployed between 1991 and 1997.  lists 5 key improvements over the WSR-57 and other previous iterations of weather RADARs:
+
+# Enhanced sensitivity, improved spatial resolution, and enhanced sensor capabilities are manifested by the RADAR’s matched-filter receiver design, narrow 1<math display="inline">^{\circ}</math> beam width and its signal processing features. This also increases the RADAR’s utility as a clear-air sensor. As a result of these upgrades, in clear air, RADARs can detect RADAR reflectivity of -16 <math display="inline">dBZ</math> and -8 <math display="inline">dBZ</math> at a range of 50 <math display="inline">km</math>, while in storm mode this reflectively is -8 <math display="inline">dBZ</math>, on average.
+# Additional products (such as maps of echo tops, and vertically integrated liquid) can be made from the base data through digital signal processing and extensive online data processing.
+# Computing algorithms for detecting significant echo features (e.g. mesocyclones) and tracking the echoes still using the time-invariant, centroid-tracking algorithm.
+# Quantitative calibration and measurement capabilities
+# The color displays offer many user-selectable features.
+
+Three basic meteorological quantities are provided through the NEXRAD RADAR system:
+
+# Reflectively : Provides data up to 460 <math display="inline">km</math> (in 1 <math display="inline">km</math> range resolution and 0.5 <math display="inline">dBZ</math> resolution)
+# Mean Radial Velocity : Provides data up to 230 <math display="inline">km</math> (in 0.2 <math display="inline">km</math> range resolution and 0.5 <math display="inline">ms^{-1}</math>)
+# Spectrum Width: Provides data up to 230 <math display="inline">km</math> (in 0.2 <math display="inline">km</math> range resolution and 0.5 <math display="inline">ms^{-1}</math>.)
+
+(<math display="inline">dBZ=10~log_{10}Z</math> where, <math display="inline">Z</math> is in <math display="inline">mm^6m^{-3}</math>)
+
+These 3 base readings are used to discern 39 categories of analysis products . Each NEXRAD RADAR antenna is programmed to run sequences of <math display="inline">\ang{360}</math> azimuthal scans. A complete sequence of scan is defined to be a ‘volume scan’. These scans are generally operated in 4 different modes based on atmospheric weather conditions. 2 of the 4 modes falls under the category of clean air mode which the antenna completes <math display="inline">\ang{360}</math> sweep at five angles (0.5 to 4.5) every 10 minutes. Third and fourth modes defined as the precipitation mode (9 elevation angles every six minutes) and severe weather mode (14 elevation angles every five minutes) both operates at elevation angles between 0.5<math display="inline">^\circ</math> and 19.5<math display="inline">^\circ</math> . There is a significant amount of emphasis placed on measurements taken from several elevations in precipitation mode and severe weather mode to be able to visualize vertical storm profiles. Under clear air mode, the RADAR is operated at a slow speed, which allows it to detect small objects, such as pollen, other <span acronym-label="pm" acronym-form="singular+abbrv">pm</span>, dust, smoke, insects and birds, that scatter the RADAR signal . A volume scan takes approximately 6 minutes for precipitation mode and 10 minutes for clear air mode, respectively. The NEXRAD radar is rarely used for direct measurements of pollen and other particulates. Despite this, some very compelling investigations have demonstrated the possibility of large aerosols being observed by the NEXRAD weather RADAR . Identifying radar scattering from large aerosols, like pollen, is hard. However, NEXRAD observations of doppler velocity, wind direction, and wind speed; which are meteorological variables control the distribution and dispersal of pollen and large <span acronym-label="pm" acronym-form="singular+abbrv">pm</span>. Also related to NEXRAD reflectivity are other meteorological factors such as cloud cover, precipitation, and rainfall. NEXRAD reflectivity, for example, can be used to estimate rainfall estimates via equation [[#eqrain|[eqrain]]].
+
+<math display="block">\label{eqrain}
+Z=aR^b</math>
+
+Here, <math display="inline">Z</math> and <math display="inline">R</math> are representative of reflectivity and rainfall, respectively, and <math display="inline">a</math> and <math display="inline">b</math> are experimentally determined constants. RADAR reflectivity and rain gauge measurements are used to determine <math display="inline">a</math> and <math display="inline">b</math>. The default values for <math display="inline">a</math> and <math display="inline">b</math> are 300 and 1.4 respectively for the National Weather Service.
+
+The lack of a complete correlation between NEXRAD measurements and <span acronym-label="pm" acronym-form="singular+long">pm</span> prompted us to search for alternatives. For this problem, <span acronym-label="ml" acronym-form="singular+long">ml</span> - which learns from example by analyzing large data sets - is an ideal fit. In <span acronym-label="ml" acronym-form="singular+long">ml</span>, an unknown variable is estimated based on input variables (data), and the method is becoming increasingly popular in many different fields. Chapter [[#c:machineLearning|5]] gives a brief introduction into <span acronym-label="ml" acronym-form="singular+long">ml</span>.
+
+= Multi-scale Integrated Sensing and Simulation (MINTS) =
+
+<span acronym-label="mints" acronym-form="singular+abbrv">mints</span> is a multidisciplinary platform developing intelligent sensing systems headquartered at the <span acronym-label="utd" acronym-form="singular+full">utd</span>. The platform hosts experts from the <span acronym-label="utd" acronym-form="singular+abbrv">utd</span> department of Physics as well as other academic branches within <span acronym-label="utd" acronym-form="singular+abbrv">utd</span>. The <span acronym-label="mints" acronym-form="singular+abbrv">mints</span> initiative is designed to provide commanders, environment officers, intelligence officers, physicians and the general public with actionable insights and situational awareness using data gained from multiple spatial and temporal data packages. Figure [[#fig:mintsContext|4.1]] shows the data collected by <span acronym-label="mints" acronym-form="singular+abbrv">mints</span> from eight different types of sentinels. A detailed description of two 24/7 streaming distributed sentinels within the <span acronym-label="mints" acronym-form="singular+abbrv">mints</span> platform is presented in the current document.
+
+<div class="center">
+
+[[File:figures/mintsContextEngine.jpg|thumb|none|alt=Detailed schematic of the <span acronym-label="mints" acronym-form="singular+abbrv">mints</span> Comprehensive Context Engine. |Detailed schematic of the <span acronym-label="mints" acronym-form="singular+abbrv">mints</span> Comprehensive Context Engine. ]]
+
+
+</div>
+Members of the <span acronym-label="mints" acronym-form="singular+abbrv">mints</span> consortium strongly advocate in advancing research in natural resources, environment and health, safety and security, transportation and Geo-spatial applications. With a broad collection of data hubs, <span acronym-label="mints" acronym-form="singular+abbrv">mints</span> plan on improving upon current data sets available while providing in depth insights to stakeholders as well as the general public. With analysis done through modern <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> algorithms, <span acronym-label="mints" acronym-form="singular+abbrv">mints</span> is capable of furnishing unique perspectives that can be missed with conventional data analysis techniques .
+
+The following are a detailed summary of two main sensor ensembles based within the <span acronym-label="mints" acronym-form="singular+abbrv">mints</span> consortium grouped under the 24/7 streaming distributed sentinels.
+
+== Central Node ==
+
+The Central Node (figure [[#fig:centralNode|4.2]]) is a stationery sensor system consisting an array of <span acronym-label="iot" acronym-form="singular+full">iot</span> sensors. The design of the system consists of nine main components:
+
+# Airmar Weather Station
+# Light Module
+# Air Module
+# Ozone Module
+# LoRa Module
+# Main Module
+# Sound and Lightning Module
+# Power Module
+# GPS Module
+
+The Central Node is an extensible platform in which many newer sensors can be adopted into. The source code for the Central Node as well as most <span acronym-label="mints" acronym-form="singular+abbrv">mints</span> projects are open source and is available at https://github.com/mi3nts.
+
+<div class="center">
+
+[[File:figures/centralNodeX.jpg|thumb|none|alt=<span acronym-label="mints" acronym-form="singular+abbrv">mints</span> Central Node. |<span acronym-label="mints" acronym-form="singular+abbrv">mints</span> Central Node. ]]
+
+
+</div>
+=== Main Module ===
+
+The Main Module (figure [[#fig:mainModule|[fig:mainModule]]]) contains an Odroid XU4  which is one of 3 single board computers used within the Central Node. The XU4 (figure [[#fig:xu4|[fig:xu4]]]) is a miniature (82 x 58 x 22 mm) single board computer consisting a Samsung Exynos 5422 Cortex™-A15 2 GHz and Cortex™-A7 Octa-core <span acronym-label="cpu" acronym-form="singular+full">cpu</span>. The powerful <span acronym-label="cpu" acronym-form="singular+abbrv">cpu</span> makes it an ideal device for edge computing. Some relevant examples with the use of edge computing are exploited within the <span acronym-label="mints" acronym-form="singular+abbrv">mints</span> platform. Communication with external data storage servers for the Central Node is handled by the XU4 via its ethernet port. The XU4 can be ran either on Android or Ubuntu operating systems. For the Central Node, Ubuntu 16.04.6 LTS operating system is utilized.
+
+The Main Module also houses a radiation sensor board with Geiger-Müller tube (figure [[#fig:radiationSensor|[fig:radiationSensor]]]) that detects Beta and Gamma radiation. The radiation sensor is connected to an Arduino Nano micro-controller (figure [[#fig:arduinoNanoMain|[fig:arduinoNanoMain]]]) with an ATmega328 <span acronym-label="cpu" acronym-form="singular+abbrv">cpu</span>. Arduino is a software and hardware company which develops simplified micro-controllers which are commonly coded through the C programming language . Together with the Arduino Nano device which is connected to the radiation module, Arduino Nanos within the ''Air Module'' &amp; the ''Light Module'' as well as the ''GPS Module'' module and the ''Ozone Module'' uses RS-232 serial interface to communicate with the XU4.
+
+=== Air Module ===
+
+The Air Module (figure [[#fig:airModule|[fig:airModule]]]) hosts a package consisting particulate and climate sensors. The module consists of a solar radiation shield which protects the package from climate elements while maintaining proper air flow through the sensors. The package hosts a standardized commercial <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> sensor (Alpha Sense OPC-N3: figure [[#fig:OPCN3|[fig:OPCN3]]]) as well as a cheaper commercial <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> sensor (Grove - Laser PM<math display="inline">_{2.5}</math> Sensor (HM3301: figure [[#fig:HM3301|[fig:HM3301]]]). Furthermore, the package consists of inexpensive gas sensors capable of gaining estimates of CO<math display="inline">_2</math> (SCD30: figure [[#fig:SCD30|[fig:SCD30]]]), CO, NO<math display="inline">_2</math>, C<math display="inline">_2</math>H<math display="inline">_6</math>OH, H<math display="inline">_2</math>, NH<math display="inline">_3</math>, CH<math display="inline">_4</math>, C<math display="inline">_3</math>H<math display="inline">_8</math> and C<math display="inline">_4</math>H<math display="inline">_{10}</math> concentrations (MiCS-6814: figure [[#fig:MGS001|[fig:MGS001]]]). To help with <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> calibrations, a climate data sensor (BME 280: figure [[#fig:BME280|[fig:BME280]]]) is also included in the Air Module.
+
+=== Light Module ===
+
+It is a well known fact that clues on air quality, weather and climate data can be gained by the measurement of ambient light levels as well as from cloud/sky images. Thus the light module (figure [[#fig:lightModule|[fig:lightModule]]]) includes an array of light sensors capable of detecting intensity peaks within wavelength ranges of 300-1,100 nm as well as a skyward facing 5 Megapixel CMOS (Complimentary Metal Oxide Semiconductor) sensor (figure [[#fig:usbWebCam|[fig:usbWebCam]]]) for high definition image capture capable of taking photos of up to 2592 (H) x 1944 (V) pixels in resolution. The camera is placed to look up at the sky and is expected to provide insights in links between the color of the sky, the cloud percentage and <span acronym-label="pm" acronym-form="singular+abbrv">pm</span>.
+
+=== Ozone Module ===
+
+The Ozone Module contains an <span acronym-label="fem" acronym-form="singular+abbrv">fem</span> monitor (2B Technologies 108-L: figure [[#fig:ozoneModule|4.3]]), which is a laser based Ozone sensor. The monitor is a measurement device distributed by 2B Technologies ([[https://www.twobtech.com |https://www.twobtech.com ]]) and also measures temperature and pressure every 2 seconds. The measurement technique for this <span acronym-label="fem" acronym-form="singular+abbrv">fem</span> instrument for Ozone  is described in §[[#ss:Ozone Measurement|4.1.4.1]].
+
+<div class="center">
+
+[[File:figures/twobtech.png|thumb|none|alt=Ozone Module (2B Technologies 108-L)|Ozone Module (2B Technologies 108-L)]]
+
+
+</div>
+==== Ozone Measurement ====
+
+While stratospheric Ozone shields human life from harmful UV radiation, within the lower atmosphere, Ozone formation is unfavorable for human life . As such, scientific methods have been introduced for the measurement of Ozone . The 2B Technologies 108-L used on the ''Ozone Module'' uses Optical Absorption Spectroscopy as its measuring technique.
+
+The working principle of the optical setup utilizes the Beer Lambert Law  shown in equation [[#eq:Beer-Lambert|[eq:Beer-Lambert]]] . <math display="block">\label{eq:Beer-Lambert}
+     I = I_{0} e^{-\alpha lC}</math> Here, <math display="inline">\alpha</math> is the coefficient of absorption at 254 <math display="inline">nm</math> (<math display="inline">\alpha</math> = 30 <math display="inline">\pm</math> 4 atm<math display="inline">^{-1}</math> cm<math display="inline">^{-1}</math>), l is the optical path length, and <math display="inline">C</math> is the Ozone concentration. Solving equation [[#eq:Beer-Lambert|[eq:Beer-Lambert]]], the Ozone concentration (equation [[#eq:ozoneConcentration|[eq:ozoneConcentration]]]) is obtained : <math display="block">\label{eq:ozoneConcentration}
+         C(g/ m^{3}) = \frac{10^{6}}{\alpha l} \frac{M}{N_{A}} ln\left(\frac{I}{I_{0}}\right) \frac{P_{s}T}{T_{s}{p}}</math>
+
+Here, <math display="inline">P</math> is the pressure within the absorption path (<math display="inline">bar</math>), <math display="inline">T</math> is the temperature within the absorption path (<math display="inline">K</math>), <math display="inline">M</math> is the molecular mass of Ozone (<math display="inline">g/mole</math>), <math display="inline">N_A</math> is Avogadro’s number, <math display="inline">P_s</math> is standard pressure (1.01325 <math display="inline">bar</math>), and <math display="inline">T_s</math> is standard temperature (273.15 K).
+
+=== Sound and Lightning Module ===
+
+Urban environments are host to many environmental pollution factors. One of which is considered to be sound pollution . To mitigate and study such environments, <span acronym-label="it" acronym-form="singular+full">it</span> based sensor systems are introduced . Despite the fact that microphones and noise sensors are relatively small in size and cheap, they tend not to be affected by weather conditions such as rain and fog. Thus, sound sensing is less affected by weather and is ideal for smart city deployments.  describes two main uses of sound analysis:
+
+# Audio Surveillance:<br />
+Under regular circumstances, surveillance of urban environments is done using video cameras, and such systems would not cover the vast expanses that are in need of protection. However, audio surveillance can be used in detection of fights, gunshots and intrusions with limited resources and with more coverage.
+# Noise Monitoring:<br />
+Millions of Americans are exposed to sound pollution and are experiencing the negative health effects of sound pollution such as stress, sleep deprivation and hearing loss . Hence, it is imperative that public ordinances which try to regulate noise levels are introduced.
+
+In an attempt to elevate research on sound and audio processing the Sound and Lightning Module hosts a microphone (DLM20GP: figure [[#fig:DPLM20GP|[fig:DPLM20GP]]]) as well as an ambient noise level sensor (SEN0232 figure [[#fig:SEN0232|[fig:SEN0232]]]), both of which are connected to a Jetson Nano (figure [[#fig:jetson|[fig:jetson]]]) device for real time edge processing of audio events. Lightning detection using <span acronym-label="iot" acronym-form="singular+abbrv">iot</span> devices are a relatively novel concept. Using a back-end big data environment, lighting detection and analysis can be successfully implemented . The Sound and Lightning model uses a DFRobot Lightning Distance Sensor (SEN0290: figure [[#fig:SEN290|[fig:SEN290]]]) which utilizes both an AMS AS3935 Franklin lightning sensor IC and a MA5532-AE antenna to detect and determine lightning distance respectively.
+
+=== LoRa Module ===
+
+The Central Node is a central gateway for a mesh network of LoRa sensors described in §[[#s:loRaNodes|4.2]]. The basic operations of the LoRa gateway is handled by a Raspberry Pi3 Model B . The Raspberry Pi is favored by many for <span acronym-label="iot" acronym-form="singular+abbrv">iot</span> applications . The Pi on the Central Node runs Linux and has a Quad Core 1.2 <math display="inline">GHz</math> Broadcom BCM2837 64 bit <span acronym-label="cpu" acronym-form="singular+abbrv">cpu</span>. The Pi also has 1 <math display="inline">GB</math> of RAM and is equipped with on board WiFi, LAN and Bluetooth modules. The 40-pin extended GPIO on the PI is used as the bridge for the LoRa Gateway. Further information of the LoRa Gateway is given in §[[#s:loRaNodes|4.2]]. The LoRa module also contains a Jetson Nano  which is the third single board computer housed within the Central Node. The Jetson Nano (figure [[#fig:jetson|[fig:jetson]]]) contains a <span acronym-label="gpu" acronym-form="singular+abbrv">gpu</span> containing 128 cores and a <span acronym-label="cpu" acronym-form="singular+abbrv">cpu</span> of 1.43 <math display="inline">GHz</math> that makes it ideal for projects based on computer vision and audio related analysis. And hence the upward facing camera as well as the microphones are directly connected to the Jetson Nano. To provide reliable internet connectivity for the 3 hosts, a low power consumption 5-Port switch (figure [[#fig:switch|[fig:switch]]]) is used. The switch is capable of connecting up to 5 devices to the internet for critical applications in hazardous environments. As such, it is ideal for future updates of the Central Node which may contain more single board computers.
+
+=== Power Module ===
+
+The Power Module (figure [[#fig:powerModule|[fig:powerModule]]]) takes care of the power requirements for the whole system. The module consists of a 24 <math display="inline">V</math> <math display="inline">AC/DC</math> converter, 24 <math display="inline">V</math> to 5 <math display="inline">V</math> step down voltage converter, and a 24 <math display="inline">V</math> to 12 <math display="inline">V</math> step down voltage converter.
+
+=== GPS Module ===
+
+The GPS Module lies on top of the ''Air Module'' and consists of a <span acronym-label="gps" acronym-form="singular+full">gps</span>, which is a waterproof device that provides location coordinates as well as other outputs such as speed and altitude. The data is provided under the NMEA standards  and is read by the XU4 via a <span acronym-label="usb" acronym-form="singular+abbrv">usb</span> RS-232 serial port.
+
+=== AirMar Weather Station ===
+
+When calibrating <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> sensors, climate data such as temperature, pressure and humidity play a vital role. And hence its extremely important to have a reference grade weather station. This role on the central node is played by the Airmar Weather Station .
+
+== LoRa Nodes ==
+
+LoRa is an infant communication technology based on ISM (Industrial, Scientific and Medical) bands which are capable of low power and '''Lo'''ng '''Ra'''nge applications. LoRaWAN is a Wide Area Network protocol that is designed to embed LoRa technology into a network infrastructure . The <span acronym-label="mints" acronym-form="singular+abbrv">mints</span> LoRa Nodes (Figure [[#fig:loRaNode|4.4]]) are designed to make use of LoRaWAN technology with each node a part of a mesh network communicating with one ''Mints Central Node''.
+
+<div class="center">
+
+[[File:figures/loraNodeX3.png|thumb|none|alt=<span acronym-label="mints" acronym-form="singular+abbrv">mints</span> LoRa Node|<span acronym-label="mints" acronym-form="singular+abbrv">mints</span> LoRa Node]]
+
+
+</div>
+The design of the LoRa Nodes consists of 4 main components:
+
+# Solar Module
+# Main Module
+# Battery Module
+# Air Module
+
+=== Solar Module ===
+
+The LoRa Nodes are designed to work without the need of direct power nor internet connectivity. This makes it extremely versatile. The main source of power for the LoRa Nodes is sunlight and thus it consists of two solar panels to harness solar energy.
+
+=== Battery Module ===
+
+The LoRa Node contains a battery which works in tandem with the solar panels to provide consistent power to the system. The battery is enclosed within a fire proof bag as well as a metal box to safeguard the node against fire hazards.
+
+=== Main Module ===
+
+The Main Module (figure [[#fig:mainModuleLora|[fig:mainModuleLora]]]) contains Seeeduino LoRaWAN Arduino development board (figure [[#fig:loraGateway|[fig:loraGateway]]]) with LoRaWan protocol embedded with the RHF76-052AM communication module. The Arduino collects data from the ''air module'' and sends it through to the ''Central Node'' through its LoRa interface. The Arduino also hosts its own <span acronym-label="gps" acronym-form="singular+abbrv">gps</span> sensor for latitude and longitude readings.
+
+The main module also houses a power management board (Sunny Buddy: figure [[#fig:sunnyBuddy|[fig:sunnyBuddy]]]). The Sunny Buddy enables the LoRa Nodes to collect maximum power possible from the ''solar module'' and it efficiently stores some of that power within the ''battery module'' for its operation through out the night.
+
+The third entity within the main module is a stand-alone breakout timer (TPL5110: figure [[#fig:timer|[fig:timer]]]). If the Arduino receives less power than it needs, it goes into a sleep mode which can only be revived through a break in power. This needs to be avoided since the system needs to work without any human interaction. The breakout timer avoids this situation by breaking the power completely when there is insufficient power and it also revives it when the coordinating solar/battery system can provide enough power to run the system.
+
+=== Air Module ===
+
+Each LoRa Node consists of an array of sensors capable of sensing <span acronym-label="pm" acronym-form="singular+abbrv">pm</span>, temperature, humidity and pressure. The <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> sensor attached to the LoRa node is the Shinyei PPD42NS (figure [[#fig:PPD42NS|[fig:PPD42NS]]]). In addition, each node is equipped with gas sensors capable of reading concentrations of CO, NO<math display="inline">_2</math>, C<math display="inline">_2</math>H<math display="inline">_6</math>OH, H<math display="inline">_2</math>, NH<math display="inline">_3</math>, CH<math display="inline">_4</math>, C<math display="inline">_3</math>H<math display="inline">_8</math> C<math display="inline">_4</math>H<math display="inline">_{10}</math> (via MiCS6814: figure [[#fig:MiCS6814_2|[fig:MiCS6814_2]]]) as well as CO<math display="inline">_2</math> (via SCD30: figure [[#fig:SCD30_2|[fig:SCD30_2]]]).
+
+== MINTS Data ==
+
+The current section describes the data protocols implemented within the <span acronym-label="mints" acronym-form="singular+abbrv">mints</span> nodes as well as how the data is communicated through to <span acronym-label="utd" acronym-form="singular+abbrv">utd</span> based data servers.
+
+=== MINTS Nodes ===
+
+The data on <span acronym-label="mints" acronym-form="singular+abbrv">mints</span> nodes are saved as ''csv'' files. A dedicated ''csv'' file is given for each sensor within a <span acronym-label="mints" acronym-form="singular+abbrv">mints</span> node for a given day. Each sensor is programmed to report data in intervals of 10 seconds. To keep track of the latest data read, a unique ''json'' file for each individual sensor is also updated. The ''csv'' files and the ''json'' files are synced to <span acronym-label="utd" acronym-form="singular+abbrv">utd</span> based data servers via ''crontab''  using ''rsync''  once per minute. The data on each node is kept within the node itself for 2 - 4 weeks. This will allow data to be successfully recovered during an internet outage of up to 4 weeks. The ''rsync'' data pipeline introduces a 1 - 2 minute lag in syncing with local <span acronym-label="utd" acronym-form="singular+abbrv">utd</span> data servers. To avoid this lag, a second data pipeline is implemented using ''MQTT'' . This enables any interested user with appropriate credentials to host a <span acronym-label="mints" acronym-form="singular+abbrv">mints</span> data center with lag-less data delivery. However, the ''MQTT'' data pipeline would go down during an internet outage and hence is vital to keep both pipelines alive.
+
+=== Calibration Station ===
+
+The collected data from most <span acronym-label="mints" acronym-form="singular+abbrv">mints</span> nodes/sensors are carefully calibrated prior to being publicly published. An example calibration study is given on a following ''chapter''. The process of calibration is done on a Unix based system. The system is coined ‘calibration station’ on the current dissertation. The data is synced from the data servers to the calibration station once every minute again using ''crontab'' and ''rsync''. Before the raw data is calibrated, the data is averaged to within 30 seconds to eliminate data outliers while keeping enough granularity to recognize minute air quality events with respect to time. The calibration algorithms are implemented via the Matlab programming language. The <span acronym-label="ml" acronym-form="singular+full">ml</span> implementation of the calibration algorithms are trained to replicate data values collected from the reference instruments such as:
+
+* The Fidas Frog and the GRIMM Laser Aerosol Spectrometer and Dust Monitor Model 1.109 for air quality data.
+* The Airmar Weather Station for climate data
+
+Once calibrated, the data is ported into a single ''csv'' (figure [[#fig:csv|4.5]]) unique to each individual sentinel. The said ''csv'' is synced back to an open portal on UTD data servers which can be publicly accessed. Some of the calibrated data is published onto a user friendly website for public engagement.
+
+=== Data Format ===
+
+The data format of an example calibrated data ''csv'' is described in Table [[#t:dataFormatTbl|4.1]].
+
+<div id="t:dataFormatTbl">
+
+{|
+|+ Data format used on the calibrated data ''csv''
+! Parameter
+! Column Name
+! Format
+! Unit
+! Example
+! Comments
+|-
+| UTC Time
+| dateTime
+| yyyy-MM-ddThh:mm:ss
+|
+| 2020-07-07T00:00:00
+| Variation of ISO 8601
+|-
+| Latitude
+| Latitude
+| xx.xxxxxxx
+| Decimal degrees
+| 32.9919435
+|
+|-
+| Longitude
+| Longitude
+| xx.xxxxxxx
+| Decimal degrees
+| -96.75783326
+|
+|-
+| Altitude
+| Altitude
+| Float
+| Meters
+| 203.41818181
+| Derived Using GPS Coordinates
+|-
+| Particles Counts
+| Bin0-Bin23
+| Float
+|
+| 15
+| Particle Counts for particle diameters varying from 0-40 <math display="inline">\mu</math>m counted within 10 <math display="inline">sec</math>
+|-
+| <math display="inline">PM_{1}</math>
+| PM1
+| Float
+| <math display="inline">\mu</math>g/m<math display="inline">^{3}</math>
+| 2.40
+|
+|-
+| <math display="inline">PM_{2.5}</math>
+| PM2_5
+| Float
+| <math display="inline">\mu</math>g/m<math display="inline">^{3}</math>
+| 4.96
+|
+|-
+| <math display="inline">PM_{4}</math>
+| PM4
+| Float
+| <math display="inline">\mu</math>g/m<math display="inline">^{3}</math>
+| 5.90
+|
+|-
+| <math display="inline">PM_{10}</math>
+| PM10
+| Float
+| <math display="inline">\mu</math>g/m<math display="inline">^{3}</math>
+| 11.94
+|
+|-
+| <math display="inline">PM_{Total}</math>
+| PMTotal
+| Float
+| <math display="inline">\mu</math>g/m<math display="inline">^{3}</math>
+| 190.40
+|
+|-
+| Pressure
+| Pressure
+| Float
+| <math display="inline">bars</math>
+| 0.98
+|
+|-
+| Temperature
+| Temperature
+| Float
+| <math display="inline">C^{\circ}</math>
+| 34.27
+|
+|-
+| Humidity
+| Humidity
+| Float
+| <math display="inline">\%</math>
+| 49.29
+|
+|-
+| Dew Point
+| DewPoint
+| Float
+| <math display="inline">C^{\circ}</math>
+| 22.30
+|
+|}
+
+
+</div>
+[[File:figures/CSV.jpg|thumb|none|alt=Calibrated data ''csv''|Calibrated data ''csv'']]
+
+= Machine Learning =
+
+== Introduction ==
+
+The modern era provides many opportunities to use large amounts of data, refereed to as big data, to study societal challenges. The analysis of such massive data volumes is done by automated processes which are proven through <span acronym-label="ml" acronym-form="singular+full">ml</span> . While there are many parallels between how living beings and machines learn, <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> within itself is referred to as the changes of a system that operates on tasks linked with Artificial Intelligence . On simpler terms, <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> can be coined as programming computers to optimize a performance objective using data from past experiences . <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> is proven to be useful in many disciplines and applications such as Agriculture , Geo-Sciences , Aerospace , Machine Vision , Health and Medical Research , strategic board games  and data mining . Many of these disciplines use remote sensing as a primary data collection method .
+
+<span acronym-label="ml" acronym-form="singular+abbrv">ml</span> can be divided into three generic categories.
+
+# Supervised Learning: These are applications which training data sets include the target outputs along with the input parameters . This is also referred to as the comprehension of techniques which uses externally supplied instances to claim a generic hypothesis based on targeted outputs provided within the supplied instances, to make a prediction on targeted outputs for previously unseen instances . Supervised learning being the most common form of <span acronym-label="ml" acronym-form="singular+abbrv">ml</span>  is further divided into two branches of classification and regression .
+## Classification: Classification problems occur when target labels are categorical rather than continuous. In classifications, the focus is put on the determination of the affiliation of a certain class . Classification is used in a variety of applications such as facial recognition, character recognition, speech recognition, medical diagnosis and bio metrics 
+## Regression: When a given target is a continuous numeric value, the solver is deemed as a regression solver . A simple linear regression problem can be solved using a regression algorithm where the solver aims at predicting numerical values based on given attribute values . However, most <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> examples of regression learners solve multivariate, non linear and non parametric problems. The current dissertation gives an in-depth overview of a regression problem.
+# Unsupervised Learning (Clustering): Data-sets used in unsupervised learning problems lack target or output variables. The data sets only consists of input variables, and hence the aim in clustering analysis is to find regularities within the input . In fact, in most deployments of <span acronym-label="ml" acronym-form="singular+abbrv">ml</span>, gaining a label (output) for a given data source is somewhat difficult or impossible . Image compression (color quantization) is one of many applications belonging to the clustering domain of <span acronym-label="ml" acronym-form="singular+abbrv">ml</span>. These applications mostly resembles an objective of constructing decision boundaries based on unlabeled data.  provides an example of using a clustering analysis to separate 6 different geographical locations while the author reinforces the analysis with a supervised approach based off of the initial clustering approach.
+
+<span acronym-label="ml" acronym-form="singular+abbrv">ml</span> is a powerful empirical tool for both supervised and unsupervised learners associated with nonlinear, multivariate systems with large amounts of data points which lacks a comprehensive and complete theoretical basis. In fact,  provides a unique, three way categorization for situations where a <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> approach is called upon.
+
+# Native deterministic model is computationally expensive: In such cases <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> can be used as a code accelerator tool.
+# When there is no deterministic model: When no deterministic solution is found, a <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> model can be obtained using data at hand.
+# Classification problems.
+
+When dealing with <span acronym-label="ml" acronym-form="singular+abbrv">ml</span>, picking out a <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> classifier is a critical step . The following are <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> algorithms commonly in use today.
+
+== Artificial Neural Networks (ANN) ==
+
+<span acronym-label="ann" acronym-form="singular+long">ann</span>s can be deemed as one of the most well known <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> algorithms. There formal precedence is to mimic a human brain which is known to be a highly complex, nonlinear parallel computer . Just as you find in a human brain, an <span acronym-label="ann" acronym-form="singular+abbrv">ann</span> will consist of neurons or nodes. Figure [[#fig:NeuronVs|5.2]] illustrates the parallels between a biological and an Artificial Neuron. A given node gains information from other nodes or inputs themselves, while having an assigned adjustable weights to store learned information . Figure [[#fig:NN|5.1]] gives an illustration of a generic feed forward <span acronym-label="ann" acronym-form="singular+abbrv">ann</span> with 3 inputs, 2 outputs and a hidden layer consisting of 4 neurons. The number of neurons as well as the topology of neurons determine the complexity of the <span acronym-label="ann" acronym-form="singular+abbrv">ann</span>.
+
+<div class="center">
+
+[[File:figures/NN.png|thumb|none|alt=Feed Forward Neural Network: A feed forward neural network consists of an input layer, an output layer as well as one or more hidden layers. Each connection consists a weight (<math display="inline">w_{ij}</math>) corresponding to the input and the output neuron. <math display="inline">f</math> represents the activation function for a given neuron.|Feed Forward Neural Network: A feed forward neural network consists of an input layer, an output layer as well as one or more hidden layers. Each connection consists a weight (<math display="inline">w_{ij}</math>) corresponding to the input and the output neuron. <math display="inline">f</math> represents the activation function for a given neuron.]]
+
+
+</div>
+ lists the 3 main components of an <span acronym-label="ann" acronym-form="singular+abbrv">ann</span>:
+
+# Input Layer: Data inputs are fed into this layer.
+# One or more hidden layers: The learning process of an <span acronym-label="ann" acronym-form="singular+abbrv">ann</span> takes place within this layer. The weight within the hidden layers stores past experiences.
+# An output layer: The decision/prediction is put out on this layer.
+
+<div class="center">
+
+[[File:figures/NeuronVS.png|thumb|none|alt= Parallels between an artificial and a biological neuron: Design of an artificial neuron has many parallels with its biological counter part. An output from a previous layer in an artificial neuron mimics that of a synapse on a biological neuron. Similar analogous relations is shared between the dendrites and the input layer, cell body and the processing layer, axon hillock and the activation layer as well as the axon terminals and the output layers.| Parallels between an artificial and a biological neuron: Design of an artificial neuron has many parallels with its biological counter part. An output from a previous layer in an artificial neuron mimics that of a synapse on a biological neuron. Similar analogous relations is shared between the dendrites and the input layer, cell body and the processing layer, axon hillock and the activation layer as well as the axon terminals and the output layers.]]
+
+
+</div>
+The most common means of updating the weighs is through a back propagation algorithm. A concise summary of the inner workings of the back propagation is given by . A mathematical model of an <span acronym-label="ann" acronym-form="singular+abbrv">ann</span> can be gained with equation [[#neuralNetwork|[neuralNetwork]]] where function <math display="inline">f</math> is an activation function. Depending on the problem, the activation function can vary from a simple identity function to a more complex log-sigmoid transfer function . <math display="block">y_j = f \left (\sum _i w_{ji}x_i\right)
+    \label{neuralNetwork}</math>Here, <math display="inline">x</math> represents inputs, <math display="inline">w_{ji}</math> represents the weight going from the <math display="inline">i^{th}</math> input to the <math display="inline">j^{th}</math> neuron, <math display="inline">y_j</math> is the output of the <math display="inline">j{th}</math> neuron and <math display="inline">f</math> is an activation function.
+
+Typically <span acronym-label="ann" acronym-form="singular+abbrv">ann</span>s are used for supervised classification or regression problems  when there is no deterministic model.
+
+== Decision Trees ==
+
+The first ever <span acronym-label="dt" acronym-form="singular+full">dt</span> algorithm was proposed in 1963 by  and was named the <span acronym-label="aid" acronym-form="singular+full">aid</span>. The development of techniques on top of its initial implementation has amplified its efficacy to surpass that of <span acronym-label="aid" acronym-form="singular+abbrv">aid</span>s . <span acronym-label="dt" acronym-form="singular+abbrv">dt</span>s are generally simple and consistent and hence is used by larger generic audiences . A <span acronym-label="dt" acronym-form="singular+abbrv">dt</span> consists of a tree like structure containing nodes and edges which are analogous to branches and leaves. The top most node is called the root and all other nodes contain one incoming node and are often refereed to as internal nodes. Leaves can also be classified as terminal nodes as they have no children. Each leaf is assigned either to a class or a target value . Figure [[#fig:DecisionTree|5.3]] illustrates a <span acronym-label="dt" acronym-form="singular+abbrv">dt</span> which classifies the suitability of a given day to play tennis, where the two possibilities are ''Yes'' and ''No''.
+
+<div class="center">
+
+[[File:figures/DT.png|thumb|none|alt=An example <span acronym-label="dt" acronym-form="singular+abbrv">dt</span> for the concept of playing Tennis. The classification is done via sorting through each attribute (outlook, humidity and wind) reaching the leaf nodes which gives the appropriate classification (in this example, ''Yes'' or ''No''). Figure adapted from |An example <span acronym-label="dt" acronym-form="singular+abbrv">dt</span> for the concept of playing Tennis. The classification is done via sorting through each attribute (outlook, humidity and wind) reaching the leaf nodes which gives the appropriate classification (in this example, ''Yes'' or ''No''). Figure adapted from ]]
+
+
+</div>
+The underlying principle of a <span acronym-label="dt" acronym-form="singular+abbrv">dt</span> is to assign a probability to each of the possible choices depending on the context of the decision and the said probability is found by asking a ordered set of questions on the context. Each question to be asked is determined based off the all answers given on the all questions asked before. Each question asked is represented via the root node and all internal nodes . With a top down build on a <span acronym-label="dt" acronym-form="singular+abbrv">dt</span>, the choice of which attribute to be used as the current node is questioned. The solution lies within a statistical approach based on entropy known as information gain.
+
+# Information Gain: The best attribute to do the classification at hand is found via the statistical property of information gain and the attributes with the maximum values of information gain will lie higher on a classification tree hierarchy.  gives information gain for an attribute <math display="inline">A</math> for a collection of samples <math display="inline">S</math> as, <math display="block">Information\  Gain (S,A)= Entropy (S)\ -\sum _{v\in Values (A)} \dfrac{\left|S_v\right|}{\left| S\right|}Entropy (S_v)
+                \label{InformationGainEQ}</math> where <math display="inline">S_v</math> is the subset of <math display="inline">S</math> where <math display="inline">A</math> has value <math display="inline">v</math> and <math display="inline">Values (A)</math> is all possible values for attribute <math display="inline">A</math>. The <math display="inline">Entropy (S)</math> has the following definition. <math display="block">Entropy (S)= \sum_{i=1}^{c} -p_i \log_2 p_i
+                \label{Entropy}</math> Here <math display="inline">c</math> denotes the number of classes while <math display="inline">p_i</math> gives the proportion of <math display="inline">S</math> belonging to class <math display="inline">i</math>.
+
+A generic <span acronym-label="dt" acronym-form="singular+abbrv">dt</span> is meant to be a disjunction of conjunctions of constrains on the attribute values of a set of instances and each route from the root to a given leaf holds a unique conjunction of a set of attribute tests . Typically <span acronym-label="dt" acronym-form="singular+abbrv">dt</span>s are used when <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> problems are faced with the following criterion’s .
+
+# Instances are represented by attribute-value pairs.
+# The outputs values are discrete (Classification Problems).
+# When disjunctive descriptions are of use.
+# When the data set may include erroneous or missing data values.
+
+== Random Forests (RF) ==
+
+<span acronym-label="rf" acronym-form="singular+long">rf</span>s are built on top of the foundations laid by <span acronym-label="dt" acronym-form="singular+abbrv">dt</span>s  and was first introduced by . <span acronym-label="rf" acronym-form="singular+abbrv">rf</span>s have been found extremely useful in both classification and regression use cases . The underlying principle of a <span acronym-label="rf" acronym-form="singular+abbrv">rf</span> is to combine multiple <span acronym-label="dt" acronym-form="singular+abbrv">dt</span>s into one <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> model. The idea itself was initially suggested by the development of the Multiple Inductive Algorithm . <span acronym-label="rf" acronym-form="singular+abbrv">rf</span> combines a number of <span acronym-label="dt" acronym-form="singular+abbrv">dt</span>s and then aggregates them to optimize performance . A general technique of bootstrapping, or general bagging, is used in random forest to train tree learners and is discussed in §[[#ss:Bagging|5.5.1]].
+
+== Ensemble Methods ==
+
+In recent years, the <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> community has become increasingly interested in multiple classifier systems, sometimes referred to as ensemble systems. This is due to the fact that ensemble systems have proven to be highly effective and flexible in tackling a wide range of problems . To form a decision, ensembles usually combine several inducers, usually in the context of supervised learning. Inducers, often called base learners, are algorithms that take as input a set of sampled data and create a model in response that generalizes the data. Predictions can be made on new examples based on the produced model. Any <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> algorithm can be used as an ensemble inducer (e.g., decision tree, neural network, linear regression model, etc.). Typically, errors of one inducer will be eliminated by other inducers. Thus, the ensemble prediction performance would be significantly greater than if a single inducer had been used . Furthermore, an ensemble’s generalization skill is often much greater than that of the individual base learners . Bagging and boosting are the two best-known ensemble learning algorithms among researchers due to their theoretical guarantees as well as their successful experimental results .
+
+=== Bootstrap Aggregation ===
+
+Bootstrap Aggregation also known as Bagging is a computationally intensive statistical model designed to set up multiple predictors to gain a final prediction . On a given learning set, <math display="block">L = { (X_1,Y_1) ......... (X_n,Y_n)}</math> containing <math display="inline">n</math> observations of a random vector <math display="inline">(X,Y)</math> where predicting variables <math display="inline">X</math> and response variables <math display="inline">Y</math> are defined as, <math display="block">X = (X^1 ..... X^p)</math> given that <math display="inline">(X \in \mathbb{R}^p)</math> and <math display="block">Y \in \mathcal{Y}</math> where <math display="inline">\mathcal{Y}</math> is either a numerical response (regression problems) or a class label (classification problems). A bootstrap aggregation creates multiple classifiers (<math display="inline">t</math>) where <math display="inline">t</math> is a mapping from <math display="inline">\mathbb{R} ^p</math> to Y or a regression function <math display="inline">s</math> defined as <math display="inline">Y = s (X)+ \epsilon</math> given that <math display="inline">E[\epsilon|X] = 0</math> . The underlying principle is to merge multiple random trees seeded through random learning samples to create a more robust <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> model .
+
+=== Boosting ===
+
+Boosting was initially introduced by  to derive enhanced performances similar to strong learners. A strong learner produces results which closely assumes true values using weak learners (Learners which achieve only slightly better results compared to random guessing). Boosting works in a sequential manner in which in each cycle, the training data as well as the resulting outputs of the previous cycle is used to train a model for a current cycle. Hence the idea of boosting is to correct errors made by the previous cycles . Unlike bootstrap methods, boosting utilizes an ensemble of learners by adoptively modifying the distribution of the training set. Figure [[#fig:BaggingVsBoosting|5.4]] describes the contrast between bagging and boosting methods.
+
+<div class="center">
+
+[[File:figures/BoostingVsBagging.png|thumb|none|alt= Bagging vs Boosting: On boosting methods <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> models are built sequentially while on bagging methods <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> models are built in parallel. With boosting methods, each learner is fed training data depending on the success rate of the previous learner. An increased weight is given to miss-classified data to improve its accuracy. On bagging models, no such weight is assigned on data. Each learner is assigned an unbiased random sample of data.| Bagging vs Boosting: On boosting methods <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> models are built sequentially while on bagging methods <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> models are built in parallel. With boosting methods, each learner is fed training data depending on the success rate of the previous learner. An increased weight is given to miss-classified data to improve its accuracy. On bagging models, no such weight is assigned on data. Each learner is assigned an unbiased random sample of data.]]
+
+
+</div>
+== Explainability of Predictions in Machine Learning ==
+
+<span acronym-label="ml" acronym-form="singular+long">ml</span> has grown to an extent where it is been used in our day to day lives in many domains ranging from criminal justice and public policy to healthcare and education, thus, reaching realms far beyond academia . Advancements in <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> has made it vital to be able to interpret and understand <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> models. However, <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> models are generally regarded as ‘black box’ models with limited interpretive options. The complexity of <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> models such as deep neural networks and random forests is often developed to optimize their predictions’ accuracy, and thus compromises its interpretability.  highlights such complexities and reflects upon the significance of interpretability in <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> models.
+
+Many approaches are introduced as tools in seeking explainable <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> models. One such popular method is <span acronym-label="shap" acronym-form="singular+full">shap</span> which is a game theoretic approach to explain the output of any <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> model.
+
+=== SHapley Additive exPlanations (SHAP) ===
+
+<span acronym-label="shap" acronym-form="singular+full">shap</span> is a well versed, popular, mathematically sound <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> explanation method introduced by . <span acronym-label="shap" acronym-form="singular+abbrv">shap</span> is primarily based on cooperative game theory and thus attributes an importance metric based on its impact on the <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> model estimation for each input feature fed into a model . This supersedes the traditional methods of gaining predictor importance used with tree based <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> models as it provides an impact factor that can show how much each predictor contributes, either positively or negatively, to the target variable. This idea is attributed to an analogy to game theory where each player is treated as the input feature and the payout is treated as the target variable . Following is a simplified overview of <span acronym-label="shap" acronym-form="singular+abbrv">shap</span> given by .
+
+<span acronym-label="shap" acronym-form="singular+abbrv">shap</span> relies on generating a simplified explanatory model (<math display="inline">\sigma</math>) which explains the original <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> model <math display="inline">f</math> using an abstract binary input vector <math display="inline">\widehat{x}_{i}' \in {\{0, 1\}}^{M}</math> where <math display="inline">M</math> denotes the number of features (players) while <math display="inline">i</math> is the instance label. <math display="inline">\widehat{x}_{i} = h_{\widehat{x}_{i}}(\widehat{x}_{i}')</math> maps the abstract features to the actual features. The simplified explanatory model is given as: <math display="block">\label{eq:localShap}
+ \sigma(\widehat{x}_{i}') =     \phi^{i,f}_{0}+ \sum_{j=1}^{M}\phi^{i,f}_{j}\widehat{x}_{i j}'</math> For a given instance <math display="inline">i</math>, the local feature effect for a feature <math display="inline">j</math> for model <math display="inline">f</math> is given as <math display="inline">\phi^{i,f}_{j}</math>. In fact, equation [[#eq:localShap|[eq:localShap]]] provides a local explanatory model. The statistics generated across a given data set gives the global explanation.  on their ground breaking paper, demonstrated that a unique <math display="inline">\sigma</math> which abides by the following substantial properties can be found:
+
+<ol>
+<li><p>Local Accuracy: <math display="inline">f({x}_{i})= \sigma(\widehat{x}_{i}')</math> when <math display="inline">{x}_{i} = h_{\widehat{x}_{i}}(\widehat{x}_{i}')</math>.</p>
+<p>This property indicates that if you pass in an original point with all features included, your simplified explanatory model <math display="inline">sigma</math> should return the value expected from the original model <math display="inline">f</math>.</p></li>
+<li><p>Missingness: <math display="inline">\widehat{x}_{i j}'= 0 \Longrightarrow \phi^{i,f}_{j}=0</math></p>
+<p>This property implies that if your original data does not include a given variable (it is missing) then you should not attribute any effects to it in your explanation model.</p></li>
+<li><p>Attribute Consistency:</p>
+<p>This implies that for any two models (<math display="inline">f\&f'</math>), the differences in model output that occur when a particular feature is present vs when it is absent is reflected in their respective attributions (<math display="inline">\phi_{j}</math>). The said attributions are calculated through Shapley values described in equation [[#eq:shapley|[eq:shapley]]], which is a concept birthed in cooperative game theory . <math display="block">\label{eq:shapley}
+     \phi^{\cdot f}_{j}=\sum_{z'\subseteq\widehat{x}'}^{M}\frac{|z'|!(M-|Z'|-1)!}{M!}[f_{\widehat{x}}(z') -f_{\widehat{x}}(z'\setminus j)  ]</math> Here, <math display="inline">z'</math> contains some subset of the features in the instance being discussed and <math display="inline">|z'|</math> denotes the number of non-zero elements in <math display="inline">z'</math>. <math display="inline">z'\setminus j</math> announces the setting which makes the <math display="inline">j^{th}</math> element of <math display="inline">z'</math>, <math display="inline">0</math>. The summation goes through all <math display="inline">z'</math> where the non-zero entries are a subset of non-zero entries of <math display="inline">\widehat{x}'</math>.</p></li></ol>
+
+= Using Machine Learning for the Calibration of Airborne Particulate Sensors =
+
+== Introduction ==
+
+The regulatory instruments typically used to measure airborne particulates by environmental agencies are often expensive. As such, the number of sensors that can be deployed is limited. Furthermore, they do not usually provide to the public low latency high frequency observations of airborne particulates. For example, instead of measurements being streamed live with a latency of less than 5 seconds with a frequency of 1-5 <math display="inline">Hz</math>, the measurements typically will have a latency of two to three hours with a frequency of once per hour. Airborne particulates are of particular significance with respect to human health, it is of utmost importance to provide low latency observations to facilitate better decisions. For example, an Asthma patient might look to stay indoors when <span acronym-label="pm" acronym-form="singular+full">pm</span> levels are high. In this study we show that <span acronym-label="ml" acronym-form="singular+full">ml</span> can be used to effectively to calibrate low-cost <span acronym-label="opc" acronym-form="singular+long">opc</span>s. And in turn provide inexpensive, up to date measurements of <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> which provide considerably more frequent readings compared to the regulatory grade data usually provided by environmental agencies. For this calibration to be accurate, it is critical that measurements of the atmospheric pressure, humidity and temperature are also made.
+
+== The Datasets Used ==
+
+In this study we use <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> to bring together two distinct types of data. First, we use accurate in-situ observations made by a research grade particulate spectrometer. Second, we use observations from inexpensive <span acronym-label="opc" acronym-form="singular+long">opc</span>s. The inexpensive sensors are particularly useful as they can be readily deployed at scale. For the data collection the two sensors were kept alongside each other for a period of at least two months (preferably six months) under varying environmental conditions.
+
+=== Research Grade Optical Particle Counter ===
+
+In this study we used a GRIMM Laser Aerosol Spectrometer and Dust Monitor Model 1.109. The sensing period of the GRIMM sensor was set to 6 seconds and for each time window provides 3 standardized mass fractions namely based on occupational health (Repairable, Thoracic and Alveolic) according to EN 481 as well as PM<math display="inline">_{1}</math>, PM<math display="inline">_{2.5}</math>, and PM<math display="inline">_{10}</math>.
+
+=== Low-Cost Optical Particle Counters ===
+
+The current study uses an Alpha Sense OPC-N3 (http://www.alphasense.com/) together with a low-cost climate sensor (BME280) as data collectors. Sensors are combined through a lighter version of the ''Mints Central Node''. The sensing period of both the OPC-N3 and the BME280 was set to 10 seconds.
+
+=== Machine Learning ===
+
+<span acronym-label="ml" acronym-form="singular+full">ml</span> has been successfully integrated in many previous environmental data studies . In this study we have used <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> for multivariate non-linear non-parametric regression. Some of the commonly used regression algorithms include neural networks , Support Vector Machines , <span acronym-label="dt" acronym-form="singular+long">dt</span>s , and ensembles of trees such as <span acronym-label="rf" acronym-form="singular+long">rf</span>s . Previously, a similar approach was used to cross-calibrate satellite instruments . Other studies have also used <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> to calibrate low-cost sensors .
+
+The inputs to our multivariate non-linear, non-parametric <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> regression were the particle counts for each of the 24 size bins measured by the OPC-N3, the OPC-N3 estimates of PM<math display="inline">_1</math>, PM<math display="inline">_{2.5}</math> and PM<math display="inline">_{10}</math>, and particularly important, the ambient atmospheric pressure, temperature and humidity. The outputs we wished to estimate were the six variables measured by the reference instrument, the research grade <span acronym-label="opc" acronym-form="singular+long">opc</span>, namely, PM<math display="inline">_1</math>, PM<math display="inline">_{2.5}</math> and PM<math display="inline">_{10}</math> and the standardized occupational health Repairable, Thoracic and Alveolic mass fractions. For each of these six parameters we created an empirical, multivariate, non-linear, non-parametric <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> regression model, and for each of these models we performed hyper-parameter optimization.
+
+<div class="center">
+
+<span>PM<math display="inline">_1</math></span>
+
+
+</div>
+<div class="center">
+
+<span>PM<math display="inline">_{2.5}</math></span>
+
+
+</div>
+<div class="center">
+
+<span>PM<math display="inline">_{10}</math></span>
+
+
+</div>
+<div class="center">
+
+<span>Alveolic</span>
+
+
+</div>
+<div class="center">
+
+<span>Thoracic</span>
+
+
+</div>
+<div class="center">
+
+<span>Inhalable</span>
+
+
+</div>
+== Results ==
+
+=== Calibrating the low-cost optical particle counters using Machine Learning ===
+
+Figure [[#Figure.PMScatterDiagrams|[Figure.PMScatterDiagrams]]] shows the the results of the multivariate, non-linear, non-parametric <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> regression for PM<math display="inline">_1</math> (panels a to c), PM<math display="inline">_{2.5}</math> (panels d to f), and PM<math display="inline">_{10}</math> (panels g to i). The left hand column of plots shows log-log axis scatter diagrams with the x-axis showing the <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> abundance from the expensive reference instrument and the y-axis showing the <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> abundance provided by calibrating the low-cost instrument using <span acronym-label="ml" acronym-form="singular+abbrv">ml</span>.
+
+For a perfect calibration the scatter plot would be a straight line with a slope of one and a y-axis intercept of zero, the blue line shows the ideal response. We can see that multivariate, non-linear, non-parametric <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> regression that we have used in this study employing an ensemble of decision trees with hyper-parameter optimization has performed very well (panels a, d and g). In each scatter diagram the green circles are the data used to train the ensemble of decision trees, the red pluses are the independent validation data used to test the generalization of the <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> model. We can see that the performance is best for the smaller particles that stay lofted in the air for a long period and do not rapidly sediment, so when comparing the scatter diagram correlation coefficients, <math display="inline">r</math>, for the independent validation test data (red-points) we see that   <math display="inline">r_{PM_1}</math> <math display="inline">></math> <math display="inline">r_{PM_{2.5}}</math> <math display="inline">></math> <math display="inline">r_{PM_{10}}</math>.
+
+The quantile-quantile plots compare the ''shape'' of the <span acronym-label="pdf" acronym-form="singular+full">pdf</span> of all the <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> abundance data collected by the expensive reference instrument to that of the the <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> abundance provided by calibrating the low-cost instrument using <span acronym-label="ml" acronym-form="singular+abbrv">ml</span>. The dotted red line in each quantile-quantile plot shows the ideal response. If the quantile-quantile plot is a straight line that means both <span acronym-label="pdf" acronym-form="singular+abbrv">pdf</span>s have ''exactly'' the same shape as we are plotting the percentiles of one <span acronym-label="pdf" acronym-form="singular+abbrv">pdf</span> against the percentiles of the other <span acronym-label="pdf" acronym-form="singular+abbrv">pdf</span>. Usually we would like to see a straight line at least between the 25<math display="inline">^{th}</math> and 75<math display="inline">^{th}</math> percentiles, in this case we have a straight line over the entire <span acronym-label="pdf" acronym-form="singular+abbrv">pdf</span>, which demonstrates that the <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> calibration has performed well.
+
+The right hand column of plots shows the relative importance of the input variables for calibrating the low-cost optical particle counters using <span acronym-label="ml" acronym-form="singular+abbrv">ml</span>. The relative importance metric is a measure of the error that results if that input variable is omitted. In the right hand column of bar plots we have sorted the importance metric into descending order, so the variable represented by the uppermost bar in each case was the most important variable for performing the calibration, the second bar is the second most important, and etc. We note that along with the number of particles counted in each size bin, it is important to measure the temperature, pressure, and humidity to be able to accurately calibrate the low-cost OPC against the reference instrument. The data also suggests that the parameter ‘reject ratio’ carries a higher deal of importance with respect to the calibration. OPC-N3 comprises two photo diodes that records voltages which are eventually translated into particle count data. However, particles which are not entirely in the beam or are passing down the edge are rejected and is reflected on the parameter ‘reject ratio’. This leads to better sizing of particles and hence plays a vital role within the <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> calibration.
+
+The correlation coefficients between the precalibrated low-cost sensor and the expensive reference instrument are: 0.83760 for <math display="inline">PM_{1}</math>, 0.78550 for <math display="inline">PM_{2.5}</math>, and 0.68256 for <math display="inline">PM_{10}</math>. This is considerably less than the correlation coefficients obtained after the <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> calibration was applied. Thus, <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> provides a clear advantage in mapping the <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> readings from the low-cost sensor to the expensive reference instrument.
+
+Another division of occupational health based size-selective sampling is defined by assessing the subset of particles that can reach a selective region of the respiratory system. On this basis three main fractions are defined: inhalable, thoracic and respirable . Studies have shown that exposure of excess <span acronym-label="pm" acronym-form="singular+long">pm</span> has alarming negative health effects . The smallest size ranges of <span acronym-label="pm" acronym-form="singular+long">pm</span> is capable of penetrating through to the lungs or even to ones blood stream.
+
+The alveolic fraction is the mass fraction of inhaled particles penetrating to the alveolar region (maximum deposition of particles with a size <math display="inline">\approx</math> 2 <math display="inline">\mu</math>m). The thoracic fraction is the mass fraction of inhaled particles penetrating beyond the larynx (<math display="inline"><</math> 10 <math display="inline">\mu</math>m). The respirable fraction is the mass fraction of inhaled particles penetrating to the unciliated airways (<math display="inline"><</math> 4 <math display="inline">\mu</math>m). The inhalable fraction is the mass fraction of total airborne particles which is inhaled through the nose and mouth (<math display="inline"><</math> 20 <math display="inline">\mu</math>m).
+
+Figure [[#Figure.respScatterDiagrams|[Figure.respScatterDiagrams]]] is similar to Figure [[#Figure.PMScatterDiagrams|[Figure.PMScatterDiagrams]]] and shows the results of the multivariate non-linear non-parametric <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> regression for the alveolic, thoracic and inhalable size fractions. As would be expected, we see that the performance is best for the smaller particles that stay lofted in the air for a long period and do not rapidly sediment, so when comparing the scatter diagram correlation coefficients, <math display="inline">r</math>, for the independent validation test data (red-points) we see that   <math display="inline">r_{Alveolic}</math> <math display="inline">></math> <math display="inline">r_{Thoracic}</math> <math display="inline">></math> <math display="inline">r_{Inhalable}</math>.
+
+== Conclusions ==
+
+We have shown that <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> can be used to effectively calibrate low-cost <span acronym-label="opc" acronym-form="singular+abbrv">opc</span>s. For this calibration it is critical that measurements of the atmospheric pressure, humidity and temperature are also included. Once <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> has been applied, scatter diagrams and quantile-quantile plots show that not only is the calibration effective but the shape of the resulting probability distribution of observations is preserved.
+
+== Social Benefit ==
+
+The study in this chapter offers us a way to gain insight into air quality and do so with significantly less cost. We have already installed several ''Central Nodes'' throughout the Dallas-Fort Worth Metroplex, where there aren’t enough sensor systems deployed by the local government to adequately cover the area. Figure [[#fig:joppaTimeSeries|6.1]] depicts the calibrated <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> readings that were reported for the first month of deployment in the City of Joppa, Texas.
+
+<div class="center">
+
+<span>Time Series </span>
+
+
+</div>
+<span>[[File:figures/joppa_09.png|604px|The figure shows how the estimates of <span acronym-label="pm" acronym-form="singular+long">pm</span> vary over time during some of September and October of 2020 at the city of Joppa, Texas. The estimates are provided after careful <span acronym-label="ml" acronym-form="singular+long">ml</span> calibration of the low-cost <span acronym-label="pm" acronym-form="singular+long">pm</span> sensor.]] </span>
+
+As expected, <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> readings vary quite rapidly over time. Often we see a cyclic variation of <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> within a given day. This can be attributed to the variation in temperature, humidity and pressure through out the day. Rapid <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> variability can also be attributed to other meteorological variables such as wind speed and wind direction.
+
+=== Press Coverage ===
+
+It is imperative that air pollution be addressed by promoting awareness of the problem itself. As the ''Central Nodes'' as well as other sensor systems that we built gets deployed more often, they have received a great deal of media attention. Through the data we provide and the research we conduct, we hope that more effective air quality regulations might be achieved.
+
+<div class="center">
+
+<span>Press Coverage</span>
+
+
+</div>
+<span>[[File:figures/mediaCoverage.png|604px|There has been extensive press coverage of both the ''Central Node''s and the ''LoRa Node''s. The press plays an important role in bringing air pollution to the public’s attention. We are grateful for the coverage which may lead to appropriate regulatory changes for the benefit of the public. Figure adapted from ]] </span>
+
+= Using Weather Radars and Machine Learning to Estimate Airborne Particulates =
+
+== Introduction ==
+
+Airborne particulates are of particular significance for both their human health impacts and their role in atmospheric radiative transfer. Observations of airborne particulates are typically made by environment agencies using rather expensive instruments. Due to the expense of these instruments, the number of sensors that can be deployed is limited. In this study we show that just as weather radars are used to examine the spatial and temporal distribution of atmospheric precipitation, if we use <span acronym-label="ml" acronym-form="singular+full">ml</span> we can also employ the weather radars to examine the spatial distribution of airborne particulates.
+
+== The Datasets Used ==
+
+In this study we use <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> to bring together three distinct types of data. First, we use accurate in-situ observations made by an accurate research grade particulate spectrometer. Second, we use remotely sensed data from atmospheric weather radars. The third data set used is from a lighter version of a ''Mints Central Node''.
+
+=== Research Grade Optical Particle Counter ===
+
+In this study we used a GRIMM Laser Aerosol Spectrometer and Dust Monitor Model 1.109. The sensing period of the GRIMM sensor was set to 6 seconds and for each time window it provides particle counts for 32 size channels ranging between 0.25 <math display="inline">\mu</math>m and 32 <math display="inline">\mu</math>m as well as PM<math display="inline">_{2.5}</math>. Even though not used for the current study, the same sensor provides 3 standardized mass fractions based on occupational health (Alveolic, Thoracic and Inhalable) according to EN 481 as well as PM<math display="inline">_{1}</math>, and PM<math display="inline">_{10}</math> readings.
+
+=== NEXRAD Weather RADAR ===
+
+RADARs are generally used to determine atmospheric phenomena such as precipitation, cloud cover, wind direction, wind speed, and other weather-related phenomena. RADARs can also detect smaller objects such as dust, sand, insects, bird migrations, ground clutter, etc. Furthermore, it can also detect changes in the refractive index of the atmosphere caused by changes in the ambient temperature.
+
+NEXRAD operates in two main modes, depending on atmospheric conditions: the precipitation mode and the clear air mode. The volume scan takes between 6 and 10 minutes for clear air and precipitation modes, respectively. The following is a description of the input variables used for the current study.
+
+# Base Reflectivity: Reflectivity is a measure of echo intensity measured in dBZ.
+# Doppler Speed: A measure of the radial component of the wind either toward the RADAR (negative values) or away from the RADAR (positive values). Scientists use these products to estimate wind speed and direction, locate boundaries, locate severe weather signatures, and identify suspected areas of turbulence.
+# Spectral Width: The spectral width is a measure of velocity dispersion within a RADAR sample volume. These measurements are primarily used to estimate turbulence associated with mesocyclones and boundaries.
+# Correlation Coefficient: The latest NEXRAD RADAR systems have dual polarization capability. Dual polarization RADAR capability adds a vertical polarization to the previously included horizontal RADAR waves. The similarity between the vertically and horizontally polarized RADAR pulses are reflected through the correlation coefficient values.
+# Differential Reflectivity: Differential reflectivity measures the energy difference between the vertically and horizontally polarized RADAR pulses. Spherical shapes will put out values near zero while vertically shaped objects often return negative values of Differential Reflectivity.
+# Differential Phase: The phase difference between the horizontal and vertical pulses of the radar as they propagate through media such as hail or rain and become weaker (slower) is known as differential phase. Differential reflectivity and differential phase values are similar to each other, but there is an important difference; differential phase is dependent on particle concentration.
+
+For the current study, data points at the two lowest elevation angles are used for each of the input variables considered.  gives a comprehensive descriptions of all NEXRAD data products.
+
+=== MINTS Data ===
+
+For the current study, a lighter version of a ''Mints Central Node'' was used for in-situ temperature, pressure and humidity measurements.
+
+== Machine Learning (ML) ==
+
+The development of <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> techniques has resulted in significant advances in a range of areas such as science, business, healthcare, and engineering. Using <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> techniques, we can gain insight from our data and allow it to speak for itself. The method is especially useful for those applications we do not yet have a complete theory for, but which are still of significance. An automated <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> system is a way of implementing the scientific method, where the same steps are taken to generate, test, and refine hypotheses . The testing of hypotheses has taken engineers and scientists their entire careers, but systems that use <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> can analyze vast amounts of data in a fraction of a second and save humans from having to spend so much time evaluating the data. Therefore, it should come as no surprise that the implementation of <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> is transforming science, technology, business, and medicine in many areas right now .
+
+The science of <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> is the process of creating empirical models solely from data. When utilizing <span acronym-label="ml" acronym-form="singular+abbrv">ml</span>, we make no prior assumptions about the data, its functional form, or probability distributions. We do not need to provide a theoretical model since it is an empirical approach. Nevertheless, it additionally implies that the best <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> software needs a comprehensive set of representative examples that cover the widest possible parameter space. It is this comprehensive set of examples that is called the ''training data''.
+
+It should be realized that <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> requires two key ingredients, both of which are essential for an effective implementation, namely, a <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> algorithm, and a comprehensive training data set. After the algorithm has been trained, one should attempt to evaluate its effectiveness with an independent validation set to see how well it performs under conditions that the algorithm has never encountered before, i.e. to assess its generalization and generalizability. For example, a random subset of the training data may be held back for independent validation.
+
+When provided with progressively more complete training data, the performance of a given <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> algorithm can go from poor to outstanding. In order to develop a <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> package that is capable of learning by example and can provide complex estimates, the training set needs to offer as much data as possible. Thus, it is crucial that as much training data as possible is provided. A lot of times, the effort that goes into this can be potentially time-consuming.
+
+In this study the inputs to our multivariate, non-linear, non-parametric, <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> regression were the remotely sensed parameters provided by the weather RADAR. To improve on the accuracy of the <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> model, in-situ measurements of temperature, humidity and pressure were also included as inputs. The outputs we wished to estimate were the variables measured by the in-situ research grade <span acronym-label="opc" acronym-form="singular+abbrv">opc</span>.
+
+[[File:figures/FitQualityWithSize.eps|thumb|none|alt=This figure shows the results of the multivariate, non-linear, non-parametric <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> regression as a function of particle size. The x-axis shows the particle size on a log-scale. The y-axis shows the quality of fit using the correlation coefficient of the scatter diagram for each particle size fraction, a perfect fit would have a correlation coefficient of 1. The blue line shows the results for the training data. The red line shows the results for the independent validation data. We can see that the <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> can effectively use the NEXRAD data for the particles with a size of less than 7 <math display="inline">\mu</math>m. |This figure shows the results of the multivariate, non-linear, non-parametric <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> regression as a function of particle size. The x-axis shows the particle size on a log-scale. The y-axis shows the quality of fit using the correlation coefficient of the scatter diagram for each particle size fraction, a perfect fit would have a correlation coefficient of 1. The blue line shows the results for the training data. The red line shows the results for the independent validation data. We can see that the <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> can effectively use the NEXRAD data for the particles with a size of less than 7 <math display="inline">\mu</math>m. ]]
+
+<div class="center">
+
+<span>Particles with a diameter of 0.25 <math display="inline">\mu</math>m</span>
+
+
+</div>
+<div class="center">
+
+<span>Particles with a diameter of 2.5 <math display="inline">\mu</math>m</span>
+
+
+</div>
+<div class="center">
+
+<span>Particles with a diameter of 25 <math display="inline">\mu</math>m</span>
+
+
+</div>
+== Results ==
+
+=== Estimating The Aerosol Size Distribution ===
+
+Figure [[#Figure.FitQuality|7.1]] shows the results of the multivariate non-linear non-parametric <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> regression as a function of particle size. The x-axis shows the particle size on a log-scale. The y-axis shows the quality of fit using the correlation coefficient of the scatter diagram for each particle size fraction, a perfect fit would have a correlation coefficient of 1. The blue line shows the results for the training data. The red line shows the results for the independent validation data. We can see that the <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> can effectively use the NEXRAD data for the particles with a size of less than 7 <math display="inline">\mu</math>m.
+
+We can see a little more detail in figure [[#Figure.ScatterDiagrams|[Figure.ScatterDiagrams]]] which shows the results of using an ensemble of regression trees for multivariate non-linear non-parametric <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> for three size fractions, 0.25 <math display="inline">\mu</math>m (panels a to c), 2.5 <math display="inline">\mu</math>m (panels d to f), and 25 <math display="inline">\mu</math>m (g to i).
+
+<div class="center">
+
+(a) [[File:figures/pm2_5at383.eps|Showing examples of the distribution of PM<math display="inline">_{2.5}</math> over a large spatial area centered at the location of the NEXRAD radar. In this case the NEXRAD radar measurements over a <math display="inline">0.5~ \text{km} \times  0.5 ~\text{km}</math> are used to estimate the PM<math display="inline">_{2.5}</math> concentrations.]] (b) [[File:figures/pm2_5at1600.eps|Showing examples of the distribution of PM<math display="inline">_{2.5}</math> over a large spatial area centered at the location of the NEXRAD radar. In this case the NEXRAD radar measurements over a <math display="inline">0.5~ \text{km} \times  0.5 ~\text{km}</math> are used to estimate the PM<math display="inline">_{2.5}</math> concentrations.]]
+
+
+</div>
+<div class="center">
+
+(d) [[File:figures/pm2_5at2027.eps|Showing examples of the distribution of PM<math display="inline">_{2.5}</math> over a large spatial area centered at the location of the NEXRAD radar. In this case the NEXRAD radar measurements over a <math display="inline">0.5~ \text{km} \times  0.5 ~\text{km}</math> are used to estimate the PM<math display="inline">_{2.5}</math> concentrations.]] (e) [[File:figures/pm2_5at2386.eps|Showing examples of the distribution of PM<math display="inline">_{2.5}</math> over a large spatial area centered at the location of the NEXRAD radar. In this case the NEXRAD radar measurements over a <math display="inline">0.5~ \text{km} \times  0.5 ~\text{km}</math> are used to estimate the PM<math display="inline">_{2.5}</math> concentrations.]]
+
+
+</div>
+The left hand column of plots in figure [[#Figure.ScatterDiagrams|[Figure.ScatterDiagrams]]] shows the scatter diagrams with the x-axis showing the actual number of particles observed by the in-situ optical particle counter and the y-axis showing the number of particles estimated from the NEXRAD data using <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> . The green circles are the training data, the red pluses are the independent validation dataset. The blue line shows the ideal response. We can see that for the smaller particles that stay lofted in the air for a long period and do not rapidly sediment, e.g. those with a size of 0.25 <math display="inline">\mu</math>m (figure [[#Figure.ScatterDiagrams|[Figure.ScatterDiagrams]]]a) that we have a very good scatter diagram and that the training and independent validation data have almost the same correlation coefficient. The same is true for particles with a diameter of 2.5 <math display="inline">\mu</math>m (figure [[#Figure.ScatterDiagrams|[Figure.ScatterDiagrams]]]d). However, for the larger particles that sediment rapidly, e.g. those with a diameter of 25 <math display="inline">\mu</math>m (figure [[#Figure.ScatterDiagrams|[Figure.ScatterDiagrams]]]g), the independent validation does not do well.
+
+The middle column of plots in figure [[#Figure.ScatterDiagrams|[Figure.ScatterDiagrams]]] shows the quantile-quantile plots for the <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> validation data, with the x-axis showing the percentiles from the <span acronym-label="pdf" acronym-form="singular+full">pdf</span> of the observed number of particles measured by the in-situ <span acronym-label="opc" acronym-form="singular+abbrv">opc</span> and the y-axis showing the percentiles from the <span acronym-label="pdf" acronym-form="singular+abbrv">pdf</span> of the estimated number of particles. The dotted red line shows the ideal response. We can see that for the smaller particles that stay lofted in the air for a long period and do not rapidly sediment, e.g. those with a size of 0.25 <math display="inline">\mu</math>m (figure [[#Figure.ScatterDiagrams|[Figure.ScatterDiagrams]]]b) that the shape of the observed and estimated <span acronym-label="pdf" acronym-form="singular+abbrv">pdf</span>s are almost the same, note that we have a straight line between the 25<math display="inline">^{th}</math> and 75<math display="inline">^{th}</math> percentiles. The same is true for particles with a diameter of 2.5 <math display="inline">\mu</math>m (figure [[#Figure.ScatterDiagrams|[Figure.ScatterDiagrams]]]e). However, for the larger particles that sediment rapidly, e.g. those with a diameter of 25 <math display="inline">\mu</math>m (figure [[#Figure.ScatterDiagrams|[Figure.ScatterDiagrams]]]h), the independent validation does not do well.
+
+The right hand column of plots in figure [[#Figure.ScatterDiagrams|[Figure.ScatterDiagrams]]] shows the relative importance of the input variables for estimating the number of particles using <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> . We note that in each case the temperature and pressure and sometimes the humidity is a key factor. For the small particles with a diameter of 0.25 <math display="inline">\mu</math>m, the NEXRAD variables providing the most information are the correlation coefficient and Doppler speed at elevation 1. For the particles with a diameter of 2.5 <math display="inline">\mu</math>m the NEXRAD variables providing the most information are the Doppler speed at elevation 2 and the differential reflectivity at elevation 1.
+
+=== Estimating PM<math display="inline">_{2.5}</math> Distribution Over a Large Spatial Area  ===
+
+Figure [[#fig:pm2_5maps|7.5]] shows the spatial distribution of PM<math display="inline">_{2.5}</math> particulates estimated over a large spatial area at <math display="inline">0.5~ \text{km} \times  0.5 ~\text{km}</math> resolution. In this case, the the <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> model is developed at <math display="inline">10~ \text{km} \times  10 ~\text{km}</math> pixel resolution and the model is applied to each pixel using the NEXRAD and atmospheric weather measurements as input.
+
+== Conclusions ==
+
+Airborne particulates are of particular significance for their human health impacts and their roles in both atmospheric radiative transfer and atmospheric chemistry. Observations of airborne particulates are typically made by environment agencies using rather expensive instruments. Due to the expense of the instruments usually used by environment agencies the number of sensors that can be deployed is limited. In this study we show that observations made by NEXRAD weather radars can be used with <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> to effectively estimated the abundance of airborne particulates with a diameter in the size range 0.1 – 7 <math display="inline">\mu</math>m. For this estimation it is critical that measurements of the atmospheric pressure, humidity and temperature are also made. Once <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> has been applied, scatter diagrams and quantile-quantile plots show that not only is the approach effective but the shape of the resulting probability distribution of observations is preserved.
+
+= Using Multiple Machine Learning Techniques for the Calibration of Low-cost CO<math display="inline">_{2}</math> Sensor =
+
+== Introduction ==
+
+CO<math display="inline">_{2}</math> has gained a lot of attention in recent years due to global warming. It is considered the principle anthropogenic greenhouse gas driving global warming . It is estimated that the global CO<math display="inline">_{2}</math> emissions growth will be at 1.8% per annum for a considerable amount of time . This is largely due to the fossil-fuel burning and industrial processes .  states that CO<math display="inline">_{2}</math> emissions may even increase other pollutants such as PM<math display="inline">_{2.5}</math> and O<math display="inline">_3</math> which comes with harmful health effects. In order to reduce and prevent global warming, as well as other negative impacts on human life, it is critical that CO<math display="inline">_2</math> levels are monitored and controlled. Almost 200 countries have pledged to reduce their greenhouse gas emissions under the Paris agreement on climate change. So, now more than ever, having a reliable, cost effective CO<math display="inline">_2</math> sensing system is vital. In this study we show that <span acronym-label="ml" acronym-form="singular+full">ml</span> can be used to effectively calibrate low-cost sensors to provide accurate readings of CO<math display="inline">_2</math>. For this calibration, it is helpful to have measurements of the atmospheric pressure, humidity, and temperature using low-cost sensors.
+
+== The Datasets Used ==
+
+In this study we use <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> to bring together two distinct types of data. First, we use accurate in-situ observations made by an accurate research grade CO<math display="inline">_{2}</math> sensor. The second data set used is from low-cost sensors which are included with the ''Mints Central Node''.
+
+=== Research grade CO<math display="inline">_{2}</math> sensor ===
+
+In this study we used a Licor LI-850 CO<math display="inline">_{2}</math>/H<math display="inline">_{2}</math>O Analyzer. The sensing period of the Licor sensor was set to 0.5 seconds and for each time window standard measurements of CO<math display="inline">_{2}</math>, and H<math display="inline">_{2}</math>O were provided. For this study only CO<math display="inline">_{2}</math> measurements are used.
+
+=== Low-Cost Sensors ===
+
+The current study uses some of the sensors on the ''Air Module'' of the ''MINTS Central Node''. The sensor package includes a low-cost CO<math display="inline">_2</math> sensor (SCD30: figure [[#fig:SCD30|[fig:SCD30]]]) as well as a climate data sensor (BME280 figure :[[#fig:BME280|[fig:BME280]]]).
+
+== Machine Learning ==
+
+Air quality assessments are usually done with the use of complex sensing systems as well as expert meteorological knowledge using first principles. Thus, such assessments, although reliable, take time to cater data into public domains. As such, there is a need for real time decision making with respect to air quality data . As well as in other areas, <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> calibrations of low-cost sensors can easily be implemented to provide up to date information on air quality .
+
+The current study looks at multiple <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> methods to predict accurate CO<math display="inline">_{2}</math> readings using the low-cost sensor system implemented with the ''Mints Central Node''.
+
+The performance of a calibration study can be dependant upon the <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> tool one may utilize, even when using the same data set for training. <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> models are generally termed as ‘black box’ models since they are usually incapable of being interpreted . The present investigation tries to remedy this issue by the use of <span acronym-label="shap" acronym-form="singular+full">shap</span> which is an approach based on game theory to explain the output of any <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> model .
+
+In this study the inputs to the <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> regression approaches taken were the parameters provided by the ''Mints Central Node''. The outputs we wished to estimate were the CO<math display="inline">_2</math> readings estimated by the research grade Licor LI-850 CO<math display="inline">_{2}</math>/H<math display="inline">_{2}</math>O Analyzer.
+
+<div class="center">
+
+<span>Scatter Plots</span>
+
+
+</div>
+<div class="center">
+
+<span>Quantile Quantile Plots</span>
+
+
+</div>
+== Results ==
+
+=== Calibrating the low-cost CO<math display="inline">_{2}</math> sensor system ===
+
+Figure [[#Figure.co2Diagrams|[Figure.co2Diagrams]]] shows the the results of the multivariate, non-linear, non-parametric regression for CO<math display="inline">_2</math> using optimized neural networks (panels a &amp; d), Regression Tree (panels b &amp; e), and an ensemble of decision trees (panels c &amp; f). The upper row of plots shows scatter diagrams with the x-axis showing the CO<math display="inline">_2</math> concentrations from the expensive reference instrument and the y-axis showing the CO<math display="inline">_2</math> concentrations provided by calibrating the low-cost instrument system using <span acronym-label="ml" acronym-form="singular+abbrv">ml</span>. For a perfect calibration the scatter plot would be a straight line with a slope of one and a y-axis intercept of zero, the black dotted line shows the ideal response. We can see that multivariate, non-linear, non-parametric <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> regression that we have used in this study employing regression tree (panels b &amp; e) and the ensemble of decision trees (panels a &amp; c) performed very well compared to the optimized neural network (panels a &amp; c). In each scatter diagram the blue circles are the data used for training, and the red circles are the independent validation data used to test the generalization of the <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> models.
+
+We can see that the performance is best for the ensemble of decision trees (ensemble learner) and then for the sole regression tree when comparing the scatter diagram correlation coefficients (<math display="inline">R</math>). For the independent validation test data (red-points) we see that   <math display="inline">{R}_{Ensemble\ Learner}</math> <math display="inline">></math> <math display="inline">{R}_{Regression\ Tree}</math> <math display="inline">></math> <math display="inline">{R}_{Optimized\ Neural\ Network}</math>. Although for the training data set, the regression tree caters a perfect outcome (<math display="inline">{R}_{Regression\ Tree} = 1</math>), it lags behind the ensemble learner when it comes to the independent validation. We can attribute this to the simple utilization of bagging with weak learners within the ensemble learner, which essentially prevents over fitting. The optimized neural network falls far behind in performance for the current analysis.
+
+The correlation coefficient between the precalibrated low-cost sensor and the expensive reference instrument is 0.5209. This is considerably less than the correlation coefficients obtained after the ML calibration was applied. Thus, <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> provides a clear advantage in mapping the CO<math display="inline">_2</math> readings from the low-cost sensor to the expensive reference instrument.
+
+The quantile-quantile plots compare the ''shape'' of the <span acronym-label="pdf" acronym-form="singular+full">pdf</span> of CO<math display="inline">_2</math> data collected by the expensive reference instrument to that of the calibrated CO<math display="inline">_2</math> concentrations estimated by the low-cost sensor system using <span acronym-label="ml" acronym-form="singular+abbrv">ml</span>. The dotted red line in each quantile-quantile plot shows the ideal response. If the quantile-quantile plot is a straight line, that means both <span acronym-label="pdf" acronym-form="singular+abbrv">pdf</span>s have ''exactly'' the same shape, as we are plotting the percentiles of one <span acronym-label="pdf" acronym-form="singular+abbrv">pdf</span> against the percentiles of the other <span acronym-label="pdf" acronym-form="singular+abbrv">pdf</span>. Usually we would like to see a straight line at least between the 25<math display="inline">^{th}</math> and 75<math display="inline">^{th}</math> percentiles. For the current case we have a straight line for most of the <span acronym-label="pdf" acronym-form="singular+abbrv">pdf</span> for each of the <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> algorithms examined. This indicates that the <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> calibration has performed well for all three approaches considered.
+
+<div class="center">
+
+<span>Predictor Importance via Ensemble Learner</span>
+
+
+</div>
+<div class="center">
+
+<span>SHAP Predictor Importance</span>
+
+
+</div>
+Figure [[#Figure.co2Predcitor|[Figure.co2Predcitor]]] shows the relative importance of the input variables for the calibration of the low-cost sensor system to estimate CO<math display="inline">_2</math> concentrations. The relative importance metric is a measure of the error that results if that input variable is omitted. This is given as a percentage on figure [[#fig:ensembleCO2Predictor|[fig:ensembleCO2Predictor]]] for the ensemble learner. The importance metric is organized into descending order, so the variable represented by the uppermost bar is the most important variable for performing the calibration, the second bar is the second most important, and so on. Figure [[#fig:treeCO2Predictor|[fig:treeCO2Predictor]]] gives another means of interpreting predictor importance via a <span acronym-label="shap" acronym-form="singular+abbrv">shap</span> summary plot. This was derived using the regression tree model. It gives a comprehensive view of feature importance and what is driving it. The vertical placement depicts the features in descending order of its importance. The color scale goes from red to blue where high values are red and lower values are blue for a given input feature. The horizontal position shows whether the effect of a given value induced a higher or lower target value (CO<math display="inline">_2</math> concentration). As expected, both the regression tree and the ensemble learner picks up the output of the cheaper CO<math display="inline">_2</math> sensor (SCD30) as the most important input for the calibration and figure [[#fig:treeCO2Predictor|[fig:treeCO2Predictor]]] also reflects that there is a positive trend between the cheaper and the research grade CO<math display="inline">_2</math> sensors. The measurements of temperature, pressure, and humidity have been also been promoted as significant on both <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> models that proved to be effective for the current study. The CO<math display="inline">_2</math> abundance has a strong positive correlation with atmospheric pressure and humidity.
+
+<div class="center">
+
+<span>Time Series </span>
+
+
+</div>
+Figure [[#fig:ensembleCO2timeSeries|[fig:ensembleCO2timeSeries]]] shows how CO<math display="inline">_2</math> concentrations varied over time. It is apparent that the concentrations estimated by the ensemble learner tally well with the concentrations recorded by the expensive reference instrument.
+
+== Conclusions ==
+
+We have shown that <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> can be used to effectively calibrate the low-cost CO<math display="inline">_2</math> sensor. For this calibration, it is critical that measurements of the atmospheric pressure, humidity and temperature are included. Once <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> has been applied, scatter diagrams and quantile-quantile plots show that not only is the calibration effective but the shape of the resulting probability distribution of observations is preserved.
+
+= Collaborative Work and Other Contributions =
+
+MINTS offers a platform which opens doors to many different adaptations, tests, and experiments, coupling physical measurements with <span acronym-label="ml" acronym-form="singular+abbrv">ml</span>, for holistic environmental sensing. Following is a description of some of these ongoing projects, to which I have contributed as an extension of my work. My sensor systems are already being deployed across campus, across the City of Plano (55 sensors requested and funded by the City of Plano), across South Dallas in the Joppa neighborhood (22 sensors funded by the community group Downwinders at Risk), across Paul Quinn University in South Dallas (11 sensors funded by the EPA Grant Number SU83996501 ‘<span acronym-label="ml" acronym-form="singular+abbrv">ml</span> Calibrated Low-Cost Sensing’), and sensors funded by the US Army (Dense Urban Environment Dosimetry for Actionable Information and Recording Exposure, U.S. Army Medical Research Acquisition Activity, BAA CDMRP Grant Log #BA170483) and Earth Day Texas to provide a total of 130 MINTS real-time 24/7 sensing nodes across DFW. The design, building and calibration using <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> of these sensors has been the focus of much of my effort over my time at <span acronym-label="utd" acronym-form="singular+abbrv">utd</span>.
+
+I also collaborated with other students in MINTS to support their activities with sensing from robotic platforms and biometric sensing. All of these projects have a single unifying goal, ‘preemptive human protection through the insights provided by comprehensive holistic physical sensing and <span acronym-label="ml" acronym-form="singular+abbrv">ml</span>’.
+
+This work is being done in collaboration with my fellow students, undergraduates Daniel Kiv, Aaron Barbosa, Giakhanh Huu Hoang, Julia Kim, John Sadler and Berkley Shofner, and graduate students Shawhin Talebi, Ashen Fernando, Adam Aker, Yichao Zhang, Yu Xiaohe, John Waczak and Gokul Balagopal. Over the last couple of years I have also mentored many high school students who have participated in the construction of my environmental sensors. I am also participating in the mentoring of teams of engineering senior design students working on building a public web portal to host data provided by the sensors I have built.
+
+== Bicycle Environmental Sensing Package (Bike MINTS) ==
+
+The work presented so far has focused primarily on physical sensors of the environment that are ''stationary'', and are intended for deployment across urban environments to make measurements every few seconds 24/7. However, a moving sensor system will provide insights into the spatial variation across a much wider range of environmental conditions. This will provide an opportunity for a much broader study on environmental sensing. Figure [[#fig:BikeMints|9.1]] is an initial prototype of our MINTS sensor for a bicycle. This design sprang from my summer internship at Argonne National Laboratory.
+
+[[File:figures/bikeMints.png|thumb|none|alt=Initial prototype of a Bike MINTS Node.|Initial prototype of a Bike MINTS Node.]]
+
+The Bike <span acronym-label="mints" acronym-form="singular+abbrv">mints</span> package hosts a plethora of sensors including <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> sensors, climate sensors (with temperature, pressure and humidity), a gyroscope, a <span acronym-label="gps" acronym-form="singular+abbrv">gps</span> module, a laser scanner and a camera module (figure [[#fig:triCameraModule|9.2]]) which I have designed.
+
+=== Camera Module ===
+
+The Bike MINTS contains a camera module pointed towards the subject riding the bicycle. It consists of a stereo pair of visible wavelength cameras and a thermal camera. The stereo cameras provide information about the physical distance at each pixel. The camera package is designed to detect changes in facial expressions of the rider as well as his/her body temperature. This is one of many tools used to study the physical and cognitive links to air pollution. Facial micro-expressions and facial blood flow are closely linked to emotional and cognitive state. The facial temperature distribution is closely linked with blood flow, which the thermal camera can accurately measure within a fraction of a degree. This work is being done in collaboration with Shawhin Talebi, a fellow graduate student.
+
+[[File:figures/TriCameraModule.JPG|thumb|none|alt=Bike MINTS Camera Module. The camera module contains three cameras. The thermal camera lies in the middle between two visual cameras used for depth mapping.|Bike MINTS Camera Module. The camera module contains three cameras. The thermal camera lies in the middle between two visual cameras used for depth mapping.]]
+
+== The Human Dimension ==
+
+[[File:figures/BiometricPackage.png|thumb|none|alt=Biometric package being used for the Army Sponsored Cyclists Project. The biometric package has three components: (1) A 64 Electrode EEG system including a 6-axis IMU (Acc+Gyro) measuring head motion. (2) Eye tracking glasses measuring pupil dilation and gaze direction at 100 Hz, also including an HD camera and microphone. (3) An auxiliary input module including respiration, GSR, EMG, GSR, PPG/HRV/SpO2, and body temperature.|Biometric package being used for the Army Sponsored Cyclists Project. The biometric package has three components: (1) A 64 Electrode EEG system including a 6-axis IMU (Acc+Gyro) measuring head motion. (2) Eye tracking glasses measuring pupil dilation and gaze direction at 100 Hz, also including an HD camera and microphone. (3) An auxiliary input module including respiration, GSR, EMG, GSR, PPG/HRV/SpO2, and body temperature.]]
+
+[[File:figures/AutonomicResponseSensing.png|thumb|none|alt=The biometric package is designed to measure a suite of autonomic responses.|The biometric package is designed to measure a suite of autonomic responses.]]
+
+The recognition of how environmental factors are influencing human physical and cognitive performance is somewhat challenging. Bike MINTS is a part of a broader project which is sponsored in part by the U.S. Army that tries to understand the role of the environment in affecting human physical and cognitive performance. The Bike MINTS sensor ensemble will be placed on a bike where the subject riding the bike will posses a cognitive sensor kit shown in figure [[#fig:BiometricMints|9.3]]. The biometric package has three components:
+
+# A 64 Electrode EEG system including a 6-axis IMU (Acc+Gyro) measuring head motion.
+# Eye tracking glasses measuring pupil dilation and gaze direction at 100 Hz, also including an HD camera and microphone.
+# An auxiliary input module including respiration, GSR, EMG, GSR, PPG/HRV/SpO2, and body temperature.
+
+The Mobile-64 is the world’s first mobile, wireless and wearable EEG system. The amplifier is a tiny box worn on the head. Stream EEG data wirelessly at 1,000 samples/sec, with full 24-bit resolution, or record to an onboard SD card. Take EEG recordings in environments and use cases that were simply impossible with previous generation technology. Providing an unparalleled level of signal quality in all environments and even under ambulatory conditions.
+
+Even though the biometric analysis is not the focus of my research, let us briefly examine why the individual wearable biometric sensors are of interest to us. The amygdala is associated with processing life-threatening or emotional events. Besides fear and pleasure processing, the amygdala has been found to be generally responsible for autonomic functions associated with emotional arousal. The amygdala modulates the emission of cortisol and other stress hormones into the bloodstream, controls autonomic involuntary functions such as heart rate, skin conductance and respiration as well as observable behaviors such as changes in posture and - via the facial nerve - facial expressions. Humans do not have control over their autonomic functions (such as heart rate, sweat production controlling skin conductance, respiration, and pupil dilation). Valuable insights into cognitive load are provided by using biometric devices to measure autonomic functions in real time. The biometric sensors provide invaluable real-time unbiased measurements, that together with <span acronym-label="ml" acronym-form="singular+abbrv">ml</span>, we can use to interpret and provide actionable insights related to the impact of the environment on human physical and cognitive performance.
+
+== Low-cost Sensor Calibration Procedure ==
+
+The calibration of our low-cost environmental sensors is being done by using the low-cost sensors together with <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> and an ensemble of research grade reference sensors and <span acronym-label="usepa" acronym-form="singular+abbrv">usepa</span> <span acronym-label="fem" acronym-form="singular+abbrv">fem</span> devices including:
+
+# Portable Mass Spectrometer.
+# Airborne Particulate Spectrometer (PALAS Fidas Frog).
+# Nanoes Partector (Nanoparticle Monitor).
+# 2B Technology Model 405 nm NO<math display="inline">_{2}</math>/NO/NO<math display="inline">_{x}</math> Monitor, EPA Federal Equivalent Method.
+# 2B Technology Model 205 Dual Beam Ozone Monitor, EPA Federal Equivalent Method.
+# 2B Technology Black Carbon Photometer.
+# LiCorr LI-850 CO<math display="inline">_2</math>/H<math display="inline">_2</math>O Analyzer.
+
+These sensors are integrated in an electric car (Chevrolet Bolt) which will drive behind the subject riding the bicycle housing both cognitive and environmental sensors. The Bike <span acronym-label="mints" acronym-form="singular+abbrv">mints</span> project is meant to pan out an analysis on both calibration of the moving sensor systems as well the links between environmental readings and human cognitive responses.
+
+== Ground Based Optical Sensing for PM Analysis ==
+
+Conventionally, <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> remote sensing is done from optical satellite imaging looking down from space towards the earth. The same principles can be used in <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> sensing through optical sensors via ground based devices looking up at the sky. Though somewhat limited in range of sensing in optical spectra, ''Mints Central Node'' carry an optical camera which is pointed towards the sky. This provides an ideal opportunity in acquiring knowledge on the relationship between the color of the sky and atmospheric <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> levels. Figure [[#fig:CleanVsDirty|[fig:CleanVsDirty]]] provides an example of how the color of the sky may vary depending on the atmospheric <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> levels. <span acronym-label="mints" acronym-form="singular+abbrv">mints</span> nodes already runs a scripts which differentiates cloud pixels and sky pixels: https://github.com/mi3nts/cloudSkyClassifier. We plan on doing a comprehensive analysis on <span acronym-label="pm" acronym-form="singular+abbrv">pm</span> levels using the optical camera as an extension of studies conducted by <span acronym-label="mints" acronym-form="singular+abbrv">mints</span>.
+
+== Robotic Boat ==
+
+[[File:figures/RoboticBoat.png|thumb|none|alt=The MINTS robotic boat and team on our recent deployments in Texas.|The MINTS robotic boat and team on our recent deployments in Texas.]]
+
+[[File:figures/BoatPayload.png|thumb|none|alt=The robotic boat payload. (1) and (2) show the BioSonics MX Aquatic Habitat Echosounder (sonar) for Autonomous Platforms. (3) and (4) shows the Eureka Manta+40 multi-probe. Our boat has three of these that contain an array of sensors measuring Temperature, pH, dissolved oxygen, total dissolved gas, and turbidity. Fluorometers measuring: Chlorophyll A with Red Excitation, Blue-Green Algae (Phycocyanin and Phycoerythrin), CDOM/fDOM, optical brighteners, crude oil, refined fuels, and tryptophan. Ion sensors measuring NH<math display="inline">_4^+</math>, NO<math display="inline">_3^-</math>, Br<math display="inline">^-</math>, Cl<math display="inline">^-</math>, Na<math display="inline">^+</math>, Ca<math display="inline">^{2+}</math>, conductivity (with specific conductance, salinity, and total dissolved solids). (5) A portable modular and boat-portable membrane inlet mass spectrometer (MIMS). (6) Sequoia LISST-200X is a submersible laser-diffraction based particle size analyzer designed to measure particle size and concentration. (7) NIST calibrated Airmar 220WX weather station with ultrasonic wind speed and direction, pressure, temperature, humidity, compass and GPS. (8) Texas Instruments DLP compact ultra portable NIR spectroscopy solutions for water analysis 900-1,700 nm and 1,350-2,490 nm. These were donated as Texas Instruments wanted to be part of this project.|The robotic boat payload. (1) and (2) show the BioSonics MX Aquatic Habitat Echosounder (sonar) for Autonomous Platforms. (3) and (4) shows the Eureka Manta+40 multi-probe. Our boat has three of these that contain an array of sensors measuring Temperature, pH, dissolved oxygen, total dissolved gas, and turbidity. Fluorometers measuring: Chlorophyll A with Red Excitation, Blue-Green Algae (Phycocyanin and Phycoerythrin), CDOM/fDOM, optical brighteners, crude oil, refined fuels, and tryptophan. Ion sensors measuring NH<math display="inline">_4^+</math>, NO<math display="inline">_3^-</math>, Br<math display="inline">^-</math>, Cl<math display="inline">^-</math>, Na<math display="inline">^+</math>, Ca<math display="inline">^{2+}</math>, conductivity (with specific conductance, salinity, and total dissolved solids). (5) A portable modular and boat-portable membrane inlet mass spectrometer (MIMS). (6) Sequoia LISST-200X is a submersible laser-diffraction based particle size analyzer designed to measure particle size and concentration. (7) NIST calibrated Airmar 220WX weather station with ultrasonic wind speed and direction, pressure, temperature, humidity, compass and GPS. (8) Texas Instruments DLP compact ultra portable NIR spectroscopy solutions for water analysis 900-1,700 nm and 1,350-2,490 nm. These were donated as Texas Instruments wanted to be part of this project.]]
+
+Whilst it was not the focus of my work, the <span acronym-label="mints" acronym-form="singular+abbrv">mints</span> robotic boat (Figures [[#fig:Boat|9.5]] and [[#fig:BoatMints|9.6]]) is another platform on which my sensors are being deployed. The boat was provided by a grant from the Texas National Security Network Excellence Fund entitled ‘Environmental Sensing Security Sentinels’). The robotic boat is a ‘best in class’ fully autonomous Maritime Robotics Otter, it was made for us in Norway, and can operate fully autonomously for twenty hours. In December of 2020, we successfully demonstrated our robotic team as part of a project entitled ‘<span acronym-label="ml" acronym-form="singular+abbrv">ml</span> for Synergistic '''Ro'''bots for '''S'''afety '''S'''urveys (ROSS)’ sponsored by DEFENSEWERX. The team involved three robots, the fully autonomous robotic boat, a FreeFly Alta-X UAV (which has a 35 lb payload capacity) carrying a hyperspectral imager, and a Ghost Robotics walking robot.
+
+The goal of the coordinated robots is preemptive human protection. The robot team have comprehensive sensing capabilities and onboard <span acronym-label="ml" acronym-form="singular+abbrv">ml</span> so that they can learn the hyperspectral remote sensing signatures new environments in real-time and provide real-time processing of sensor feeds to help answer the questions: (1) Is the area safe (e.g. from chemical agents)? (2) What survey patterns are best to use. (3) Is the water safe (to enter/to drink). (4) What protective clothing may be needed.
+
+<div class="thesisbib">
+
+
+
+</div>
+<div class="biosketch">
+
+Lakitha O.H. Wijeratne is currently in his sixth year of study in the PhD Physics program at The University of Texas at Dallas. He was born in Colombo, Sri Lanka. After completing his school work, Lakitha entered the University of Colombo, Sri Lanka in pursuit of an undergraduate degree in Computational Physics. After receiving his bachelor’s degree, Lakitha joined University of Colombo as a teaching assistant.
+
+In the Fall of 2015, he entered The University of Texas at Dallas in pursuit if his doctoral degree. While at UT Dallas, Lakitha joined Prof. David Lary’s research group and began his study on atmospheric particulate matter. In 2017 he received the Master of Science in Physics.
+
+During his tenure at UT Dallas Lakitha collaborated with Daji Wu, Gebreab K. Zewdie, Xun Liu, Ray Ducay, Yichao Zhang, Yu Xiaohe, Shawhin Talebi, Adam Aker, John Waczak, Ashen Fernando and Gokul Balagopal, who are fellow graduate students within Prof. David Lary’s research group. During the summer of 2018, Lakitha did an internship at Argonne National Labs, where he gained significant experience in design, development, and deployment of novel sensor systems.
+
+
+</div>
+<div class="vita">
+
+<div class="center">
+
+<span>'''Lakitha O.H. Wijeratne'''</span><br />
+May, 2021
+
+
+</div>
+'''Contact Information:'''
+
+'''Educational History:'''
+
+BS, Computational Physics, University of Colombo, 2013
+
+MS, Physics, University of Texas at Dallas, 2017
+
+'''Employment History:'''
+
+Teaching Assistant, University of Colombo, Sri Lanka, January 2014  – May 2015
+
+Teaching Assistant, The University of Texas at Dallas, August 2015  – May 2018
+
+Research Assistant, The University of Texas at Dallas, August 2018  – Present
+
+'''Publications:'''
+
+* Wijeratne, L.O., D.R. Kiv, A.R. Aker, S. Talebi, and D.J. Lary (2020). Using machine learning for the calibration of airborne particulate sensors. Sensors 20(1), 99.
+* Lary, D. J., D. Schaefer, J. Waczak, A. Aker, A. Barbosa, L. O. Wijeratne, S. Talebi, B. Fernando, J. Sadler, T. Lary, et al. (2021). Autonomous learning of new environments with a robotic team employing hyper-spectral remote sensing, comprehensive in-situ sensing and machine learning. Sensors 21(6), 2240.
+* Liu, X., D. Wu, G. K. Zewdie, L. Wijeratne, C. I. Timms, A. Riley, E. Levetin, and D. J. Lary(2017). Using machine learning to estimate atmospheric ambrosia pollen concentrations intulsa, ok. Environmental health insights 11, 1178630217699399
+* Talebi, S., D. J. Lary, L. O. Wijeratne, and T. Lary (2019). Modeling autonomic pupillary responses from external stimuli using machine learning. Biomedical Journal of Scientific &amp;Technical Research 20(3), 14999–15009.
+
+
+</div>
