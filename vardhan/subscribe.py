@@ -8,7 +8,7 @@ def on_message(client, userdata, message):
     print("received message: " ,str(message.payload.decode("utf-8")))
     speed_list_1.append(message.payload.decode("utf-8"))
 
-
+#random broker hosting
 mqttBroker ="mqtt.eclipseprojects.io"
 
 client = mqtt.Client("Database")
@@ -22,8 +22,8 @@ client.on_message=on_message
 time.sleep(30)
 client.loop_stop()
 
+#matplotlib code
 numbers = []
-
 speed_list = [float(x) for x in speed_list_1]
 
 
