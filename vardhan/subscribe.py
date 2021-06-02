@@ -22,8 +22,6 @@ client.on_message=on_message
 time.sleep(30)
 client.loop_stop()
 
-import matplotlib.pyplot as plt
-
 numbers = []
 
 speed_list = [float(x) for x in speed_list_1]
