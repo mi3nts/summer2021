@@ -6,3 +6,5 @@
 ## June 2, 2020
 - Created a subscriber/publisher setup using PyCharm that feeds arbitrary data about car speeds (see publisher.py and subscriber.py).
 - Created a graph in accordance with this data.
+## June 3, 2020
+- Updated subscriber/publisher system to include real-time matplotlib graph
