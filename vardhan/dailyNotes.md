@@ -8,3 +8,4 @@
 - Created a graph in accordance with this data.
 ## June 3, 2020
 - Updated subscriber/publisher system to include real-time matplotlib graph
+- Pushed files onto github
