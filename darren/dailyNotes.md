@@ -23,4 +23,6 @@
   - PLA stands for polylactic acid. It is the most popular 3d printing material because of its ease of use, affordability, and material properties. Additionally, it comes in a big range of composites and colors. However, it is sensitive to heat, brittle, and inflexible. Thus, it is not the ideal material for the Texas summer.
   - Alloy 910 is made by taulman3D. For the most part, it is more expensive than PLA, but that is because it is a more versatile material. It is less susceptible to melting under heat, thus it is a better option for the sensors.
 ## June 4, 2021
+- Made presentation on FreeCAD, Cura, and PLA and Alloy 910.
+## June 5, 2021
 - 
