@@ -1,7 +1,8 @@
 import paho.mqtt.client as mqtt
 import time
 import csv
-import matplotlib.pyplot as plt
+from datetime import datetime
+
 
 #initialize lists
 speed_list_1 = []
@@ -9,7 +10,9 @@ fieldnames = ["x_value", "speed_data"]
 
 
 def on_message(client, userdata, message, x_value = 1):
-    print("received message: " ,str(message.payload.decode("utf-8")))
+    now = datetime.now()
+    current_time = now.strftime("%H:%M:%S")
+    print("Received message: " + str(message.payload.decode("utf-8")) + " at time " + str(current_time))
     speed_list_1.append(message.payload.decode("utf-8"))
 
 #random broker hosting
@@ -56,8 +59,8 @@ while True:
 
 # numbers = []
 # speed_list = [float(x) for x in speed_list_1]
-# 
-# 
+#
+#
 # for i in range (len(speed_list_1)):
 #     numbers.append(i)
 # plt.plot(numbers, speed_list)
