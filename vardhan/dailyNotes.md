@@ -9,3 +9,5 @@
 ## June 3, 2020
 - Updated subscriber/publisher system to include real-time matplotlib graph
 - Pushed files onto github
+## June 4, 2020
+- Made presentation on MQTT in order to help future students new to the lab understand the concept better
