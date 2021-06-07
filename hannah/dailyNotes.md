@@ -18,3 +18,6 @@ Building sensors
 
 ## June 4, 2021
 <p> -Gave presentation on mediawiki </p>
+
+## June 7, 2021
+<p> -Created the Particulate Sensors page on MediaWiki </p>
