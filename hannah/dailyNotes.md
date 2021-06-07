@@ -11,3 +11,10 @@ Building sensors
 <p> -Updated references on wiki page </p>
 <p> -Added media to wiki page </p>
 <p> -Need to still update equations </p>
+
+## June 3, 2021
+<p> -Updated references on wiki page </p>
+<p> -Added links to wiki page </p>
+
+## June 4, 2021
+<p> -Gave presentation of mediawiki </p>
