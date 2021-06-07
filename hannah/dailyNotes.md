@@ -17,4 +17,4 @@ Building sensors
 <p> -Added links to wiki page </p>
 
 ## June 4, 2021
-<p> -Gave presentation of mediawiki </p>
+<p> -Gave presentation on mediawiki </p>
