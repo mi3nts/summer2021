@@ -2,6 +2,7 @@ import paho.mqtt.client as mqtt
 import time
 import csv
 from datetime import datetime
+import json
 
 
 #initialize lists
@@ -30,6 +31,8 @@ while True:
     client.subscribe("Speed")
     client.on_message=on_message
 
+    now = datetime.now()
+    current_time = now.strftime("%H:%M:%S")
 
     with open('data.csv', 'a') as csv_file:
         csv_writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
@@ -46,6 +49,18 @@ while True:
         csv_writer.writerow(info)
         x_value += 1
 
+    data = {}
+
+    if (len(speed_list_1) == 0):
+        data["Speed"] = 0
+        data["Time"] = 0
+    else:
+        data["Speed"] = speed_list_1[-1]
+        data["Time"] = str(current_time)
+
+    #write most recent data into json file
+    with open("speed.json", "w") as fp:
+        json.dump(data, fp)
 
 
     time.sleep(1)
