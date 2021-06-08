@@ -1,10 +1,14 @@
 import paho.mqtt.client as mqtt
+from getmac import get_mac_address as gma
 import time
 import csv
 import datetime
 import json
 
+macaddr = gma()
+mac_csv = macaddr.replace(":", "")
 
+#in actual implementation, all of the mac addresses here can be read in through f strings, not just copy and pasting
 #initialize lists
 Temperature = []
 Pressure = []
@@ -15,16 +19,16 @@ fieldnames = ["dateTime", "Temperature", "Pressure", "Humidity", "Altitude"]
 
 def on_message(client, userdata, message):
     current_time = datetime.datetime.now()
-    if message.topic == "4c:1d:96:a4:f7:0e/Temperature":
+    if message.topic == f"{macaddr}/Temperature":
         print("Received message: " + str(message.payload.decode("utf-8")) + " at time " + str(current_time))
         Temperature.append(message.payload.decode("utf-8"))
-    if message.topic == "4c:1d:96:a4:f7:0e/Pressure":
+    if message.topic == f"{macaddr}/Pressure":
         print("Received message: " + str(message.payload.decode("utf-8")) + " at time " + str(current_time))
         Pressure.append(message.payload.decode("utf-8"))
-    if message.topic == "4c:1d:96:a4:f7:0e/Humidity":
+    if message.topic == f"{macaddr}/Humidity":
         print("Received message: " + str(message.payload.decode("utf-8")) + " at time " + str(current_time))
         Humidity.append(message.payload.decode("utf-8"))
-    if message.topic == "4c:1d:96:a4:f7:0e/Altitude":
+    if message.topic == f"{macaddr}/Altitude":
         print("Received message: " + str(message.payload.decode("utf-8")) + " at time " + str(current_time))
         Altitude.append(message.payload.decode("utf-8"))
 
@@ -40,15 +44,15 @@ client.connect(mqttBroker)
 while True:
     client.loop_start()
 
-    client.subscribe("4c:1d:96:a4:f7:0e/Temperature")
-    client.subscribe("4c:1d:96:a4:f7:0e/Pressure")
-    client.subscribe("4c:1d:96:a4:f7:0e/Humidity")
-    client.subscribe("4c:1d:96:a4:f7:0e/Altitude")
+    client.subscribe(f"{macaddr}/Temperature")
+    client.subscribe(f"{macaddr}/Pressure")
+    client.subscribe(f"{macaddr}/Humidity")
+    client.subscribe(f"{macaddr}/Altitude")
 
     client.on_message = on_message
 
 
-    with open("4c1d96a4f70e_BME20.csv", 'a') as csv_file:
+    with open(f"{mac_csv}_BME20.csv", 'a') as csv_file:
         csv_writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
         if (len(Altitude) == 0):
             info = {
@@ -72,16 +76,16 @@ while True:
 
     if (len(Altitude) == 0):
         data["dateTime"] = 0
-        data["Temperature"] = 0
-        data["Pressure"] = 0
-        data["Humidity"] = 0
-        data["Altitude"] = 0
+        data[f"{macaddr}/Temperature"] = 0
+        data[f"{macaddr}/Pressure"] = 0
+        data[f"{macaddr}/Humidity"] = 0
+        data[f"{macaddr}/Altitude"] = 0
     else:
         data["dateTime"] = str(datetime.datetime.now())
-        data["Temperature"] = Temperature[-1]
-        data["Pressure"] = Pressure[-1]
-        data["Humidity"] = Humidity[-1]
-        data["Altitude"] = Altitude[-1]
+        data[f"{macaddr}/Temperature"] = Temperature[-1]
+        data[f"{macaddr}/Pressure"] = Pressure[-1]
+        data[f"{macaddr}/Humidity"] = Humidity[-1]
+        data[f"{macaddr}/Altitude"] = Altitude[-1]
 
     #write most recent data into json file
     with open("sensor.json", "w") as fp:
