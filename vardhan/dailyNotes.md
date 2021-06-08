@@ -13,3 +13,5 @@
 - Made presentation on MQTT in order to help future students new to the lab understand the concept better
 ## June 7, 2020
 - Worked with and implemented UTC Time
+## June 8, 2020
+- Created a more realistic sensor mqtt system with UTC Time, created a json file for the dashboard and csv file for future use (graphing/ml)
