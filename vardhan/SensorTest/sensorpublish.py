@@ -25,3 +25,15 @@ while True:
     sensor.publish(f"{macaddr}/Altitude", randAlt)
     print("Just published " + str(randTemperature) + f" to topic {macaddr}/Temperature, " + str(randPressure) + f" to topic {macaddr}/Pressure, " + str(randHumidity) + f" to topic {macaddr}/Humidity, " + str(randAlt) + f" to topic {macaddr}/Altitude " + " at time " + str(current_time))
     time.sleep(1)
+    
+    ## TRY SOMETHING LIKE 
+#  from collections import OrderedDict
+#  sensorDictionary =  OrderedDict([
+#               ("dateTime"    , str(dateTime)),
+#         		("Temperature" ,randTemperature ),
+#             	("Pressure"    ,randPressure),
+#               ("Humidity"    ,randHumidity)
+#                ])
+#  mqtt_client.publish(macAddress+"/"+sensorName,json.dumps(sensorDictionary))
+#  mac address should be a string with no colons, same goes for the sensor name. 
+ 
