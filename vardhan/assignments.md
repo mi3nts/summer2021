@@ -15,7 +15,8 @@
 
 - Create two more sensors(speedometor, rainsensor) in a similar manner.
 
-
-
-
+## June 10th 2021
+- Create an actual dashboard with the data that you have. The dashboard should have one big window and within lets say 4 seperate windows which will cater time series graphs of the data which comes in. 
+This is the real world example I have running. Your final assignment will be to add more graphs into this implimentation. For now you can use this as a reference.
+![alt text](https://github.com/mi3nts/mqttSubscribers/blob/main/dashboard.jpg)
 
