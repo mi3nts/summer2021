@@ -21,3 +21,16 @@ Building sensors
 
 ## June 7, 2021
 <p> -Created the Particulate Sensors page on MediaWiki </p>
+
+
+## June 8, 2021
+<p> -Finished the Particulate Sensors page on MediaWiki </p>
+
+## June 9, 2021
+<p> -Learned to graph sensor data using python </p>
+
+## June 10, 2021
+<p> -Graphed sensor data using python </p>
+
+## June 11, 2021
+<p> -Began attempting to merge graphs using python </p>
