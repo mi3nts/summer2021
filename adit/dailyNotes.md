@@ -8,3 +8,7 @@
 
 ## July 6th, 2021
 - Worked with partner to parse the EPA API and attempted to get the node data from the UTD sensor 
+
+## July 7th, 2021
+- Read the ML paper on sensor calibration and took notes
+- Worked on using HDF5 to open the .mat file of node data (trying to see if there is a way to convert it to .mat v7.3) - https://juliahub.com/docs/HDF5/L7Dga/0.13.2/
