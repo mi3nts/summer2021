@@ -15,3 +15,6 @@
 - Worked with and implemented UTC Time
 ## June 8, 2020
 - Created a more realistic sensor mqtt system with UTC Time, created a json file for the dashboard and csv file for future use (graphing/ml)
+## July 8, 2020
+- Finished up EPA API data processing, was able to make csv concise + load it into my IDE.
+- Added tags to my programs
