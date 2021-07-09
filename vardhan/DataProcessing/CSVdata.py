@@ -2,6 +2,23 @@ import pandas as pd
 import csv
 import math
 
+# ***************************************************************************
+#   ---------------------------------
+#   Written by: Vardhan Agnihotri
+#   - for -
+#   Mints: Multi-scale Integrated Sensing and Simulation
+#   ---------------------------------
+#   Date: July 9th, 2021
+#   ---------------------------------
+#   This module is written for generic implimentation of MINTS projects
+#   ---------------------------------------------------------------------
+#   https://github.com/mi3nts
+#
+#   Contact:
+#      email: 24agnihotriv@smtexas.org
+# ***********************************************************************
+#   Averaging measurements every 60 values (template for Adit)
+
 utdNode = pd.read_csv("C:/Users/usr/PycharmProjects/mintsML/files/mintsUTDData.csv")
 EPAdata = pd.read_csv("C:/Users/usr/PycharmProjects/mintsML/files/EPAdata.csv")
 
