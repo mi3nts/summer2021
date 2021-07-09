@@ -25,7 +25,6 @@ sum = 0
 # print(measureAvg)
 
 #for Node list
-
 for i in range(math.floor(len(measureNodeList)/60) - 1):
 
     for j in range(i*60, ((i+1)*60)-1):
