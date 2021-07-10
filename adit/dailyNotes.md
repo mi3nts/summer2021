@@ -12,3 +12,8 @@
 ## July 7th, 2021
 - Read the ML paper on sensor calibration and took notes
 - Worked on using HDF5 to open the .mat file of node data (trying to see if there is a way to convert it to .mat v7.3) - https://juliahub.com/docs/HDF5/L7Dga/0.13.2/
+
+## July 9th, 2021
+- Working on reframing the node data using the reframe function in Python 
+- Able to reframe time, working on reframing the actual data now 
+  - Dealing with NaN values being shown in the reformat, working on getting the appropriate data 
