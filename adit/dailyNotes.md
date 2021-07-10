@@ -15,5 +15,5 @@
 
 ## July 9th, 2021
 - Working on reframing the node data using the reframe function in Python 
-- Able to reframe time, working on reframing the actual data now 
+- Able to reframe time in a chronological sequence starting from 0, working on reframing the actual data now 
   - Dealing with NaN values being shown in the reformat, working on getting the appropriate data 
