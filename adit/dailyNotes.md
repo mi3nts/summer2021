@@ -17,3 +17,10 @@
 - Working on reframing the node data using the reframe function in Python 
 - Able to reframe time in a chronological sequence starting from 0, working on reframing the actual data now 
   - Dealing with NaN values being shown in the reformat, working on getting the appropriate data 
+- Developed Python algorithm for resampling hourly data 
+## July 13th, 2021
+- Worked on trying to resample hourly data using Julia 
+## July 14th, 2021
+- Continued to attempt resampling with Julia 
+
+
