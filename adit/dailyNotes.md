@@ -22,5 +22,7 @@
 - Worked on trying to resample hourly data using Julia 
 ## July 14th, 2021
 - Continued to attempt resampling with Julia 
+## July 15th, 2021
+- Worked on reformating time data to make it favorable to Julia (specific order of time is needed for resampling)  
 
 
